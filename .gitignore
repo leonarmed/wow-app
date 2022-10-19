@@ -1,5 +1,7 @@
 # ignore all files starting with .
 .*
+.env
+.env.example
 
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
