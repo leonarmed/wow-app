@@ -21,7 +21,7 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          {window.location.pathname != "/aboutus" && <Navbar />}
+          <Navbar />
           <Routes>
             <Route element={<LandingPage />} path="/aboutus" />
             <Route element={<Home />} path="/" />

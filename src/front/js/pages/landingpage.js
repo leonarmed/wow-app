@@ -1,9 +1,12 @@
 import React from "react";
-import CustomCard from "../component/CustomCard/index.js";
+import CustomCard from "../component/LandingPage/CustomCard/index.js";
 
 //include images into your bundle
-import CustomNavbar from "../component/CustomNavbar/index.js";
-import Jumbotron from "../component/Jumbotron/index.js";
+import Jumbotron from "../component/LandingPage/Jumbotron/index.js";
+import Ideas from "../component/LandingPage/Ideas/index.js";
+import Members from "../component/LandingPage/Members/index.js";
+import ProjectScope from "../component/LandingPage/ProjectScope/index.js";
+import Technology from "../component/LandingPage/Technology/index.js";
 
 const description =
   "Lorem ipsum odor amet, consectetuer adipiscing elit. Sit malesuada vestibulum mollis sem faucibus tempor tortor aliquet? Venenatis ac nisl etiam ultricies natoque pharetra ipsum lorem. Elit facilisi elementum enim pharetra eros. Pulvinar dignissim pretium torquent urna erat curabitur diam metus. Ornare magnis eros aliquet ad congue dictumst tortor elementum sodales.";
@@ -82,8 +85,12 @@ const LandingPage = () => {
   var year = currentTime.getFullYear();
   return (
     <div>
-      <CustomNavbar />
+      <Ideas />
+      <Members />
+      <ProjectScope />
+      <Technology />
       <div className="container-md p-2">
+        <members />
         <Jumbotron />
         <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 m-auto">
           {cards.map((card, i) => {

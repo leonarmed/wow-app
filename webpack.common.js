@@ -1,48 +1,50 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
+const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  entry: [
-    './src/front/js/index.js'
-  ],
+  entry: ["./src/front/js/index.js"],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
-    publicPath: '/'
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "public"),
+    publicPath: "/",
   },
   module: {
     rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: ['babel-loader']
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
+      {
+        test: /\.(scss|css)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|gif|jpeg|webp)$/,
+        use: {
+          loader: "file-loader",
+          options: { name: "[name].[ext]" },
         },
-        {
-          test: /\.(css|scss)$/, use: [{
-              loader: "style-loader" // creates style nodes from JS strings
-          }, {
-              loader: "css-loader" // translates CSS into CommonJS
-          }]
-        }, //css only files
-        {
-          test: /\.(png|svg|jpg|gif|jpeg|webp)$/, use: {
-            loader: 'file-loader',
-            options: { name: '[name].[ext]' }
-          }
-        }, //for images
-        { test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, use: ['file-loader'] } //for fonts
-    ]
+      }, //for images
+      {
+        test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+        use: ["file-loader"],
+      }, //for fonts
+    ],
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ["*", ".js"],
   },
   plugins: [
     new HtmlWebpackPlugin({
-        favicon: '4geeks.ico',
-        template: 'template.html'
+      favicon: "4geeks.ico",
+      template: "template.html",
     }),
-    new Dotenv({ safe: true, systemvars: true })
-  ]
+    new Dotenv({ safe: true, systemvars: true }),
+    new MiniCssExtractPlugin(),
+  ],
 };
