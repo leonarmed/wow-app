@@ -9,9 +9,10 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="home text-center mt-5">
+    <div className="home text-center mt-5 d-block">
       <Header />
       <Cards />
+
       {/* <h1>Hello Rigo!!</h1>
       <p>
         <img src={rigoImageUrl} />
