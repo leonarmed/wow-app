@@ -1,4 +1,5 @@
-.home {
+.container-header {
+  min-height: 480px;
   .header-video {
     --ratio-perc: 42.1875%;
     height: 480px;
@@ -36,10 +37,19 @@
       }
     }
   }
+  .title {
+    color: #faf9f8;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 3.83px;
+    text-shadow: 0 2px 7px rgb(0 0 0 / 27%);
+    text-transform: uppercase;
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 1200px) and (min-width: 320px) {
-  .home {
+  .container-header {
     .header-video {
       .responsive-video {
         width: 1127px;

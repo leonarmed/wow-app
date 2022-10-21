@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div>
+    <div className="container-header">
       <div className="header-video">
         <div className="responsive-video">
           <iframe
@@ -16,7 +16,7 @@ export default function Header() {
           ></iframe>
         </div>
       </div>
-      <div className="title">¿Qué plan tienes para hoy?</div>
+      <div className="title t-4">¿Tienes algún plan para hoy?</div>
     </div>
   );
 }
