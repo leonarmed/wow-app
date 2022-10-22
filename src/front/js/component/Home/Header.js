@@ -17,6 +17,7 @@ export default function Header() {
         </div>
       </div>
       <div className="title t-4">¿Tienes algún plan para hoy?</div>
+      <div className="subtitle">¡WOW te trae varias ideas!</div>
     </div>
   );
 }
