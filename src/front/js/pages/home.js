@@ -11,7 +11,10 @@ export const Home = () => {
   return (
     <div className="home text-center mt-5 d-block">
       <Header />
-      <Cards />
+      <div className="container-fluid">
+        <Cards />
+      </div>
+      
 
       {/* <h1>Hello Rigo!!</h1>
       <p>
