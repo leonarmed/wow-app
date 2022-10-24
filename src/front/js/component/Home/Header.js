@@ -1,4 +1,5 @@
 import React from "react";
+import CustomMultiFilter from "../CustomMultiFilter";
 
 export default function Header() {
   return (
@@ -17,7 +18,8 @@ export default function Header() {
         </div>
       </div>
       <div className="title t-4">¿Tienes algún plan para hoy?</div>
-      <div className="subtitle">¡WOW te trae varias ideas!</div>
+      <div className="subtitle">¡WOW te da ideas!</div>
+      <CustomMultiFilter />
     </div>
   );
 }

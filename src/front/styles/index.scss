@@ -2,5 +2,11 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 body {
-    font-family: Lato, sans-serif;
+  font-family: Lato, sans-serif;
+}
+
+.btn-primary {
+  background-color: #00e3fa;
+  border-color: #00e3fa;
+  color: #202124;
 }

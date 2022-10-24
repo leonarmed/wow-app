@@ -52,6 +52,14 @@
     line-height: 1.05;
     letter-spacing: 2.83px;
     text-shadow: 0 2px 7px rgb(0 0 0 / 27%);
+    margin-top: 20px;
+  }
+  .MuiAutocomplete-root {
+    background-color: white;
+    border-radius: 20px;
+    .MuiInputBase-root {
+      border-radius: 20px;
+    }
   }
 }
 
