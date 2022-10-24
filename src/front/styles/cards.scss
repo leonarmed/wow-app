@@ -1,0 +1,16 @@
+.card {
+  width: 26rem;
+}
+.card-img-top {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+}
+.favorite-btn {
+  font-size: 22px;
+  position: absolute;
+  margin-left: 21.5rem;
+}
+.favorite-btn:hover{
+  color: red;
+}
