@@ -14,6 +14,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: "absolute",
@@ -28,57 +29,18 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
 }));
 
 const actions = [
-  { icon: <FileCopyIcon />, name: "Copy" },
-  { icon: <SaveIcon />, name: "Save" },
-  { icon: <PrintIcon />, name: "Print" },
-  { icon: <ShareIcon />, name: "Share" },
+  { icon: <WhatsAppIcon />, name: "WhatsApp" }
 ];
 
 export default function PlaygroundSpeedDial() {
-  const [direction, setDirection] = React.useState("up");
-  const [hidden, setHidden] = React.useState(false);
-
-  const handleDirectionChange = (event) => {
-    setDirection(event.target.value);
-  };
-
-  const handleHiddenChange = (event) => {
-    setHidden(event.target.checked);
-  };
 
   return (
-    <Box sx={{ transform: "translateZ(0px)", flexGrow: 1 }}>
-      <FormControlLabel
-        control={
-          <Switch
-            checked={hidden}
-            onChange={handleHiddenChange}
-            color="primary"
-          />
-        }
-        label="Hidden"
-      />
-      <FormControl component="fieldset" sx={{ mt: 1, display: "flex" }}>
-        <FormLabel component="legend">Direction</FormLabel>
-        <RadioGroup
-          aria-label="direction"
-          name="direction"
-          value={direction}
-          onChange={handleDirectionChange}
-          row
-        >
-          <FormControlLabel value="up" control={<Radio />} label="Up" />
-          <FormControlLabel value="right" control={<Radio />} label="Right" />
-          <FormControlLabel value="down" control={<Radio />} label="Down" />
-          <FormControlLabel value="left" control={<Radio />} label="Left" />
-        </RadioGroup>
-      </FormControl>
-      <Box sx={{ position: "relative", mt: 3, height: 320 }}>
+   
+      <Box sx={{ mt: 0}}>
         <StyledSpeedDial
-          ariaLabel="SpeedDial playground example"
-          hidden={hidden}
-          icon={<SpeedDialIcon />}
-          direction={direction}
+          ariaLabel="SpeedDial"
+          icon={<ShareIcon />}
+          direction={"right"}
         >
           {actions.map((action) => (
             <SpeedDialAction
@@ -89,6 +51,5 @@ export default function PlaygroundSpeedDial() {
           ))}
         </StyledSpeedDial>
       </Box>
-    </Box>
   );
 }
