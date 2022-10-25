@@ -1,6 +1,19 @@
+.card-container {
+  width: 2048px;
+}
+
 .card {
   width: 26rem;
+  border-radius: 20px;
 }
+
+.card-title {
+  font-size: 1.1rem;
+  text-align: left;
+  flex-grow: 1;
+  font-weight: 600;
+}
+
 .card-img-top {
   width: 100%;
   height: 16rem;
@@ -8,9 +21,12 @@
 }
 .favorite-btn {
   font-size: 22px;
-  position: absolute;
-  margin-left: 21.5rem;
+  padding: 0;
 }
-.favorite-btn:hover{
+.favorite-btn:hover {
   color: red;
+}
+.starIcon {
+  font-size: 22px;
+  color: #eb832f;
 }
