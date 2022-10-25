@@ -1,5 +1,6 @@
 .card {
   width: 26rem;
+  height: fit-content;
 }
 .card-img-top {
   width: 100%;
@@ -11,6 +12,10 @@
   position: absolute;
   margin-left: 21.5rem;
 }
-.favorite-btn:hover{
+.favorite-btn:hover {
   color: red;
+}
+.starIcon {
+  font-size: 22px;
+  color: #eb832f;
 }
