@@ -9,7 +9,7 @@ export default function CustomMultiFilter() {
     <Stack
       spacing={3}
       sx={{
-        width: "450px",
+        width: "80%",
         display: "flex",
         justifyContent: "center",
         margin: "20px auto",

@@ -1,0 +1,24 @@
+.sponsors-container {
+  margin-top: 50px;
+
+  .carousel-inner{
+    border-radius: 20px;
+    .carousel-item {
+        position: relative;
+        border-radius: 20px;
+
+        .shadow {
+            height: 400px;
+            width: 100%;
+            background: #000;
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        img {
+            height: 400px;
+            object-fit: cover;
+        }
+    }
+  }
+}
