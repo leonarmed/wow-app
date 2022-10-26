@@ -7,7 +7,7 @@ import imagen from "../../../../img/default_img.jpeg";
 export default function Cards({ data }) {
   const { title, urlImage, price, likes, startDate } = data;
   return (
-    <div className="card shadow mb-5 me-4 bg-body rounded">
+    <div className="card box mb-5 me-4 bg-body rounded">
       <img
         src={urlImage ? urlImage : imagen}
         className="card-img-top"
