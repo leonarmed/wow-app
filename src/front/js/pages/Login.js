@@ -5,10 +5,11 @@ export default function Login() {
     <div className="login text-center h-100 bg-secondary text-white p-4">
       <div className="container border border-white rounded">
         <div class="row h-100">
-          <div class="col border-end">Imagen</div>
-          <div class="col">Form</div>
+          <div class="col border-end left-panel">Imagen</div>
+          <div class="col right-panel">Form</div>
         </div>
       </div>
     </div>
   );
 }
+//     background: linear-gradient(#68dcc4, #52bab0);

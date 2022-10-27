@@ -7,7 +7,7 @@ import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-dark">
-      <div className="container navbar">
+      <div className="container">
         <div className="left-content">
           <Link to="/">
             <span className="navbar-brand mb-0 h1">Inicio</span>
