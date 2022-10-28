@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Perfil } from "./pages/perfil"
 import LandingPage from "./pages/landingpage";
 import injectContext from "./store/appContext";
 import CardDetails from "./pages/carddetails"
@@ -30,6 +31,7 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<h1>Not found!</h1>} />
             <Route element={<CardDetails />} path="/event/:theid" />
+            <Route element={<Perfil />} path="/myprofile" />
           </Routes>
           {window.location.pathname != "/aboutus" && <Footer />}
         </ScrollToTop>
