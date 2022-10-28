@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import LandingPage from "./pages/landingpage";
 import injectContext from "./store/appContext";
-
+import CardDetails from "./pages/carddetails"
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Login from "./pages/Login";
@@ -30,6 +29,7 @@ const Layout = () => {
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Login />} path="/login" />
             <Route element={<h1>Not found!</h1>} />
+            <Route element={<CardDetails />} path="/event/:theid" />
           </Routes>
           {window.location.pathname != "/aboutus" && <Footer />}
         </ScrollToTop>
