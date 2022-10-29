@@ -1,0 +1,40 @@
+
+.container{
+.containerimage {
+  height: 400px;
+  object-fit: cover;
+  width: 100%!important;
+  background-size: 100%!important;
+  background-repeat: no-repeat;
+  .ola{background-color: rgba(0, 0, 0, 0.6);}  
+}
+.favorite-btn {
+  font-size: 22px;
+  padding: 0;
+  color: white;
+}
+.favorite-btn:hover {
+  color: red;
+}
+.starIcon {
+  font-size: 22px;
+  color: #eb832f;
+  margin-right: 5%;
+}
+.FECHA{
+  background-color: blueviolet;
+
+}
+.barrasubimagen{
+  background-color: #202124;
+  padding: auto;
+  color: white;
+}
+.boton1{
+  background: #f887fd;
+}
+.checked {
+  color: yellow;
+}
+}
+  

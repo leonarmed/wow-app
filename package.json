@@ -86,6 +86,7 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.10",
     "@mui/styled-engine-sc": "^5.10.6",
+    "bootstrap-icons": "^1.9.1",
     "prop-types": "^15.6.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",

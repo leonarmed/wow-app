@@ -11,6 +11,7 @@ class User(db.Model):
     birth_date = db.Column(db.Date(), unique=True, nullable=False)
     phone = db.Column(db.String(120), unique=True, nullable=False)
     rol = db.Column(db.String(20), unique=True, nullable=False)
+    bio = db.Column(db.String(250), unique=True, nullable=True)
     created_at = db.Column(db.Date(), unique=True, nullable=False)
     updated_at = db.Column(db.Date(), unique=True, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
