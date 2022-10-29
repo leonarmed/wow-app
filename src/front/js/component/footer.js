@@ -4,7 +4,7 @@ const date = new Date();
 const year = date.getFullYear();
 export const Footer = () => (
   <>
-    <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top footer me-0 ms-0">
+    <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 footer me-0 ms-0">
       <div className="col mb-3">
         <a
           href="/"

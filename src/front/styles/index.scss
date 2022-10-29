@@ -10,3 +10,7 @@ body {
   border-color: #00e3fa;
   color: #202124;
 }
+
+.MuiInput-underline:after{
+  border-bottom-color: red;
+}

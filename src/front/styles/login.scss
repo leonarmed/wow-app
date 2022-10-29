@@ -1,5 +1,32 @@
 .login {
+  min-height: calc(100vh - 100px);
+  height: calc(100%);
+  background-color: #202124;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .container {
-    height: calc(100vh - 100px - 3rem);
+    height: 100%;
+    box-shadow: 0 0rem 3rem #ffffff24;
+    border-radius: 15px;
+
+    .left-panel {
+      background: linear-gradient(#00e3fb, #0095cc);
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      min-height: 500px;
+
+      .MuiTypography-h4,
+      .MuiTypography-caption {
+        color: #0b4d5c;
+      }
+    }
+
+    .right-panel {
+      min-height: 500px;
+      background: linear-gradient(#3b4762, #202b3c);
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
   }
 }
