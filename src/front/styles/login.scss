@@ -16,7 +16,6 @@
       border-bottom-left-radius: 15px;
       min-height: 500px;
 
-      .MuiTypography-h4,
       .MuiTypography-caption {
         color: #0b4d5c;
       }
@@ -27,6 +26,10 @@
       background: linear-gradient(#3b4762, #202b3c);
       border-top-right-radius: 15px;
       border-bottom-right-radius: 15px;
+
+      .MuiTypography-h4 {
+        color: #ff9d00;
+      }
     }
   }
 }
