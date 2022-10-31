@@ -1,16 +1,17 @@
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginControllers() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const schema = yup
     .object({
-      user: yup.string().required('Este campo es requerido'),
-      password: yup.string().required('Este campo es requerido'),
+      user: yup.string().required("Este campo es requerido"),
+      password: yup.string().required("Este campo es requerido"),
     })
-    .required()
+    .required();
 
   const {
     control: controlInputs,
@@ -18,12 +19,12 @@ export default function LoginControllers() {
     formState: { errors: errorsData },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onBlur',
+    mode: "onBlur",
     defaultValues: {
-      user: '',
-      password: '',
+      user: "",
+      password: "",
     },
-  })
+  });
 
   const onSendSubmit = async (data) => {
     // try {
@@ -42,13 +43,13 @@ export default function LoginControllers() {
     // } finally {
     //   loadingRequest.hiddenLoading()
     // }
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   return {
     controlInputs,
     errorsData,
     handleSubmitData,
     onSendSubmit,
-  }
+  };
 }

@@ -3,9 +3,9 @@ import { Grid, Typography, Button } from "@mui/material";
 import Logo from "../../../img/WOW.png";
 import LoginControllers from "./LoginController";
 
-export default function RightPanel({action}) {
+export default function RightPanelRegister({action}) {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} className="register">
       <Grid item xs={12} display="flex" justifyContent="center">
         <img src={Logo} alt="logo-wow" width="75px" />
       </Grid>

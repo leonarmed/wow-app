@@ -32,4 +32,34 @@
       }
     }
   }
+  &.register {
+    .container {
+      .left-panel {
+        transform: translateX(-200%);
+        transition: 2s;
+      }
+
+      .right-panel {
+        transform: translateX(+200%);
+        transition: 2s;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .login {
+    .container {
+      .left-panel {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0px;
+      }
+      .right-panel {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 0px;
+      }
+    }
+  }
 }
