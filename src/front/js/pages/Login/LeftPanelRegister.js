@@ -12,7 +12,7 @@ export default function LeftPanelRegister() {
     <CustomFormContainer
       mode="form"
       onSubmit={handleSubmitData(onSendSubmit)}
-      style={{ background: 'none' }}
+      style={{ background: "none" }}
       className="register"
     >
       <Grid container spacing={2}>
@@ -24,7 +24,7 @@ export default function LeftPanelRegister() {
           justifyContent="flex-start"
         >
           <Typography variant="h4" align="left">
-            Iniciar Sesión
+            Regístrate
           </Typography>
           <Typography variant="caption" align="left">
             ¡No esperes más y empieza a vivir la vida!
@@ -49,7 +49,7 @@ export default function LeftPanelRegister() {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" variant="contained" color="secondary">
-            Iniciar
+            Registrarme
           </Button>
         </Grid>
       </Grid>

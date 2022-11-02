@@ -3,7 +3,7 @@ import { Grid, Typography, Button } from "@mui/material";
 import Logo from "../../../img/WOW.png";
 import LoginControllers from "./LoginController";
 
-export default function RightPanel({action}) {
+export default function RightPanel({ action }) {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} display="flex" justifyContent="center">
@@ -20,12 +20,16 @@ export default function RightPanel({action}) {
           ¿Aún no te has registrado?
         </Typography>
         <Typography variant="h6" align="center">
-          ¡Hazlo y encuentra los mejores eventos, descubre nuevas experiencias e
-          inicia el mejor viaje de tu vida!
+          ¡Encuentra los mejores eventos, inicia el mejor viaje de tu vida con
+          nuevas experiencias!
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Button onClick={() => action(true)} variant="contained" color="secondary">
+        <Button
+          onClick={() => action(true)}
+          variant="contained"
+          color="secondary"
+        >
           Registrarse
         </Button>
       </Grid>
