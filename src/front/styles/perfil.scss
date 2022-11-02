@@ -1,7 +1,27 @@
-.a{
-    width: 40%;
+.left{
+    background-color: white;
+    border-radius: 15px;
+    height: fit-content;
 }
 
-.b{
-    width: 60%;
+.right{
+    
+    height: inherit;
+}
+.profile-pic{
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.main-container{
+    background-color: rgba(175, 175, 175, 0.408);
+    border-radius: 20px;
+}
+.card-favoritos{
+    background-color: white;
+    border-radius: 15px;
+}
+.card-header{
+    background-color: rgba(255, 255, 255, 0);
 }

@@ -17,7 +17,9 @@ class User(db.Model):
 
     events = db.relationship('Event', backref='user', lazy=True)
     comments = db.relationship('Comment', backref='user', lazy=True)
-    ratingss = db.relationship('Rating', backref='user', lazy=True)
+    ratings = db.relationship('Rating', backref='user', lazy=True)
+    favoritos = db.relationship('Favorite', backref='user', lazy=True)
+    asistencia = db.relationship('Assist', backref='user', lazy=True)
 
 
     def __repr__(self):
@@ -57,6 +59,8 @@ class Event(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     comments = db.relationship('Comment', backref='event', lazy=True)
     ratings = db.relationship('Rating', backref='event', lazy=True)
+    favorites = db.relationship('Favorite', backref='event', lazy=True, uselist=False)
+    asistencia = db.relationship('Assist', backref='event', lazy=True, uselist=False)
 
     @classmethod
     def create(cls, title, address, price, description, category, start_day, end_day, geolocation, img_url):
@@ -131,3 +135,19 @@ class Rating(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }
+
+class Favorite(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_at = db.Column(db.Date(), unique=True, nullable=False)
+    updated_at = db.Column(db.Date(), unique=True, nullable=False)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=False)
+
+class Assist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_at = db.Column(db.Date(), unique=True, nullable=False)
+    updated_at = db.Column(db.Date(), unique=True, nullable=False)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=False)
