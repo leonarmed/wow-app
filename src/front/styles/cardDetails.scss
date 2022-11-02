@@ -1,26 +1,25 @@
 
-.container{
+.container-fluid{
+  width: 100%;
+  background-color: #202124;
+.hero{
+  background-color: #fff;
+  box-shadow:
+    0 0 20px 10px #fff,  /* inner white */
+    0 0 50px 15px #f0f, /* middle magenta */
+    0 0 70px 20px #0ff; /* outer cyan */
 .containerimage {
   height: 400px;
   object-fit: cover;
   width: 100%!important;
   background-size: 100%!important;
   background-repeat: no-repeat;
-  .ola{background-color: rgba(0, 0, 0, 0.6);}  
+  .ola{background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
 }
-.favorite-btn {
-  font-size: 22px;
-  padding: 0;
-  color: white;
 }
-.favorite-btn:hover {
-  color: red;
 }
-.starIcon {
-  font-size: 22px;
-  color: #eb832f;
-  margin-right: 5%;
-}
+
 .FECHA{
   background-color: blueviolet;
 
@@ -29,12 +28,32 @@
   background-color: #202124;
   padding: auto;
   color: white;
+  .favorite-btn {
+    font-size: 22px;
+    padding: 0;
+    color: white;
+    width: 2em;
+    height: 2em;
+    
+  }
+  .favorite-btn:hover {
+    color: red;
+  }
+  .starIcon {
+    font-size: 22px;
+    color: #eb832f;
+    margin-right: 5%;
+  }
 }
-.boton1{
-  background: #f887fd;
-}
+
 .checked {
   color: yellow;
 }
+.row{
+  margin-left: 0px!important;
 }
-  
+.partenegra{
+  background-color: #202124!important;
+}
+}
+
