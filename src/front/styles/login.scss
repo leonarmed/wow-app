@@ -1,5 +1,114 @@
 .login {
+  min-height: calc(100vh - 100px);
+  height: calc(100%);
+  background-color: #202124;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .container {
-    height: calc(100vh - 11rem);
+    height: 100%;
+    box-shadow: 0 0rem 3rem #ffffff24;
+    border-radius: 15px;
+
+    .shadow-wow {
+      width: 150px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    #main-login {
+      min-height: 500px;
+    }
+
+    .left-panel,
+    .left-panel-register {
+      background: linear-gradient(#00e3fb, #0095cc);
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      min-height: 500px;
+      position: absolute;
+      transition: 2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .MuiTypography-caption {
+        color: #0b4d5c;
+      }
+    }
+
+    .left-panel-register {
+      transform: translateX(-200%);
+    }
+
+    .right-panel,
+    .right-panel-register {
+      min-height: 500px;
+      position: absolute;
+      background: linear-gradient(#3b4762, #202b3c);
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      transition: 2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .MuiTypography-h4 {
+        color: #ff9d00;
+      }
+    }
+
+    .right-panel-register {
+      transform: translateX(200%);
+      padding: 10px;
+    }
+  }
+  &.register {
+    .container {
+      .left-panel {
+        transform: translateX(-200%);
+        transition: 2s;
+      }
+
+      .left-panel-register {
+        transform: translateX(0);
+        transition-delay: 4s;
+        transition: 2s;
+      }
+
+      .right-panel {
+        transform: translateX(+200%);
+        transition: 2s;
+      }
+
+      .right-panel-register {
+        transform: translateX(-200%);
+        transition-delay: 4s;
+        transition: 2s;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .login {
+    .container {
+      .left-panel,
+      .left-panel-register {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0px;
+      }
+      .right-panel,
+      .right-panel-register {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 0px;
+      }
+    }
   }
 }

@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-.navbar{
-  &.navbar-dark{
-    background-color: #0000006e;
+.navbar {
+  height: 100px;
+  &.navbar-dark {
+    // background-color: #0000006e;
+    background-color: #202124b5;
     backdrop-filter: blur(5px);
-  }
-  .container {
-    &.navbar {
+
+    .container {
       .navbar-brand {
         font-family: Lato, sans-serif;
         font-size: 0.75rem;
@@ -14,11 +15,11 @@
         text-transform: uppercase;
         transition: color 0.1s;
       }
-  
+
       a {
         text-decoration: none;
       }
-  
+
       .title {
         color: #f054ee;
         font-size: 2.5rem;
@@ -26,7 +27,7 @@
         font-family: "Permanent Marker", cursive;
         text-shadow: -3px -1px 7px #8609a5;
       }
-  
+
       svg {
         margin-right: 15px;
       }
