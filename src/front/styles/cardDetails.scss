@@ -1,7 +1,9 @@
 
 .container-fluid{
   width: 100%;
-  background-color: #202124;
+  &.fondo{
+    background-color: #202124;
+  }
 .hero{
   background-color: #fff;
   box-shadow:
