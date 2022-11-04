@@ -5,14 +5,14 @@ import CustomInputForm from "../../component/Form/CustomInputForm";
 import CustomFormContainer from "../../component/Form/CustomFormContainer";
 
 export default function LeftPanel() {
-  const { handleSubmitData, onSendSubmit, controlInputs, errorsData } =
+  const { handleSubmitData, onLogin, controlInputs, errorsData } =
     LoginControllers();
 
   return (
     <CustomFormContainer
       mode="form"
-      onSubmit={handleSubmitData(onSendSubmit)}
-      style={{ background: 'none' }}
+      onSubmit={handleSubmitData(onLogin)}
+      style={{ background: "none" }}
     >
       <Grid container spacing={2}>
         <Grid
@@ -31,10 +31,10 @@ export default function LeftPanel() {
         </Grid>
         <Grid item xs={12}>
           <CustomInputForm
-            name="user"
+            name="email"
             control={controlInputs}
-            error={errorsData.user}
-            label="Nombre de usuario"
+            error={errorsData.email}
+            label="Correo electrónico"
           />
         </Grid>
         <Grid item xs={12}>

@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/WOW.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@mui/material"
+import { Button } from "@mui/material";
+import { Context } from "../store/appContext";
+import isEmpty from "is-empty";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+  const { me } = store;
+  const [user, setUser] = useState(me);
+  useEffect(() => {
+    setUser(me);
+  }, [me]);
+  console.log(user, "navbar///");
   return (
     <nav className="navbar navbar-dark">
       <div className="container">
@@ -22,11 +31,18 @@ export const Navbar = () => {
           <div className="title">OW!</div>
         </div>
         <div className="ml-auto">
-          <Link to="/demo">
-            <Button type="submit" variant="contained" color="secondary">
+          <Link to="/login">
+            {isEmpty(user) ? (
+              <Button type="submit" variant="contained" color="secondary">
                 <FontAwesomeIcon icon={faRightToBracket} />
                 Iniciar Sesión
-            </Button>
+              </Button>
+            ) : (
+              <Button variant="contained" color="secondary">
+                <FontAwesomeIcon icon={faRightToBracket} />
+                Cerrar Sesión
+              </Button>
+            )}
           </Link>
         </div>
       </div>

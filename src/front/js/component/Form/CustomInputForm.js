@@ -2,8 +2,7 @@ import React from "react";
 import { Control, Controller } from "react-hook-form";
 import CustomInput, { CustomInputProps } from "./CustomInput";
 
-function CustomInputForm({name, control, ...rest}) {
-  // console.log(rest.defaultValue)
+function CustomInputForm({ name, control, ...rest }) {
   return (
     <Controller
       control={control}
