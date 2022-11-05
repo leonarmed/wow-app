@@ -5,13 +5,17 @@ import CustomInputForm from "../../component/Form/CustomInputForm";
 import CustomFormContainer from "../../component/Form/CustomFormContainer";
 
 export default function LeftPanelRegister() {
-  const { handleSubmitData, onSendSubmit, controlInputs, errorsData } =
-    LoginControllers();
+  const {
+    handleSubmitDataRegister,
+    onRegister,
+    controlInputsRegister,
+    errorsDataRegister,
+  } = LoginControllers();
 
   return (
     <CustomFormContainer
       mode="form"
-      onSubmit={handleSubmitData(onSendSubmit)}
+      onSubmit={handleSubmitDataRegister(onRegister)}
       style={{ background: "none" }}
       className="register"
     >
@@ -30,20 +34,61 @@ export default function LeftPanelRegister() {
             ¡No esperes más y empieza a vivir la vida!
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <CustomInputForm
-            name="user"
-            control={controlInputs}
-            error={errorsData.user}
-            label="Nombre de usuario"
+            size="small"
+            name="name"
+            control={controlInputsRegister}
+            error={errorsDataRegister.name}
+            label="Nombre"
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <CustomInputForm
+            size="small"
+            name="last_name"
+            control={controlInputsRegister}
+            error={errorsDataRegister.last_name}
+            label="Apellido"
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CustomInputForm
+            size="small"
+            name="birth_date"
+            type="date"
+            InputLabelProps={{ shrink: true }}
+            control={controlInputsRegister}
+            error={errorsDataRegister.birth_date}
+            label="Fecha de nacimiento"
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CustomInputForm
+            size="small"
+            name="phone"
+            control={controlInputsRegister}
+            error={errorsDataRegister.phone}
+            label="Teléfono"
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CustomInputForm
+            size="small"
+            name="email"
+            type="email"
+            control={controlInputsRegister}
+            error={errorsDataRegister.email}
+            label="Correo electrónico"
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CustomInputForm
+            size="small"
             name="password"
             type="password"
-            control={controlInputs}
-            error={errorsData.password}
+            control={controlInputsRegister}
+            error={errorsDataRegister.password}
             label="Contraseña"
           />
         </Grid>

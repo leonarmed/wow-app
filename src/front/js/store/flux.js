@@ -1,3 +1,4 @@
+import { request } from "../services/api";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -66,6 +67,28 @@ const getState = ({ getStore, getActions, setStore }) => {
       saveUserInfo: (data) => {
         const store = getStore();
         setStore({ me: data });
+      },
+      getUserInfo: async function () {
+        const actions = getActions();
+        try {
+          const response = await request({
+            method: "GET",
+            path: "/api/user",
+            customHeaders: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          });
+          actions.saveUserInfo(response);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      logout: () => {
+        localStorage.removeItem("token");
+        setStore({ me: {} });
+      },
+      isLoading: (state) => {
+        setStore({ isLoading: state });
       },
     },
   };

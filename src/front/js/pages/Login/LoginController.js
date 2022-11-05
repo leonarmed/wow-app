@@ -9,7 +9,7 @@ import { Context } from "../../store/appContext";
 export default function LoginControllers() {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-  const schema = yup
+  const schemaLogin = yup
     .object({
       email: yup.string().required("Este campo es requerido"),
       password: yup.string().required("Este campo es requerido"),
@@ -20,7 +20,7 @@ export default function LoginControllers() {
     handleSubmit: handleSubmitData,
     formState: { errors: errorsData },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaLogin),
     mode: "onBlur",
     defaultValues: {
       email: "",
@@ -28,37 +28,65 @@ export default function LoginControllers() {
     },
   });
 
-  async function getUserInfo() {
-    try {
-      const response = await request({
-        method: "GET",
-        path: "/api/user",
-        customHeaders: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      actions.saveUserInfo(response);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const schemaRegister = yup
+    .object({
+      email: yup.string().required(),
+      password: yup.string().required(),
+      name: yup.string().required(),
+      last_name: yup.string().required(),
+      birth_date: yup.date().required(),
+      phone: yup.string().required(),
+    })
+    .required("Este campo es requerido");
+  const {
+    control: controlInputsRegister,
+    handleSubmit: handleSubmitDataRegister,
+    formState: { errors: errorsDataRegister },
+  } = useForm({
+    resolver: yupResolver(schemaRegister),
+    mode: "onBlur",
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   const onLogin = async (params) => {
     try {
-      // loadingRequest.showLoading()
+      actions.isLoading(true);
       const response = await request({
         method: "POST",
         path: "/api/login",
         params,
       });
       localStorage.setItem("token", response.token);
-      getUserInfo();
+      actions.getUserInfo();
       navigate("/");
     } catch (error) {
       console.log(error);
       // HandlerError(error);
     } finally {
-      // loadingRequest.hiddenLoading();
+      actions.isLoading(false);
+    }
+  };
+
+  const onRegister = async (params) => {
+    Object.assign(params, { rol: "registered" });
+    try {
+      actions.isLoading(true);
+      const response = await request({
+        method: "POST",
+        path: "/api/register",
+        params,
+      });
+
+      const { email, password } = params;
+      onLogin({ email, password });
+    } catch (error) {
+      console.log(error);
+      // HandlerError(error);
+    } finally {
+      actions.isLoading(false);
     }
   };
 
@@ -67,5 +95,9 @@ export default function LoginControllers() {
     errorsData,
     handleSubmitData,
     onLogin,
+    onRegister,
+    controlInputsRegister,
+    errorsDataRegister,
+    handleSubmitDataRegister,
   };
 }

@@ -13,7 +13,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Login from "./pages/Login/Login";
 import "react-toastify/dist/ReactToastify.css";
-import { Context } from "./store/appContext";
+import SimpleBackdrop from "./component/BackdropLoader";
 
 //create your first component
 const Layout = () => {
@@ -36,6 +36,7 @@ const Layout = () => {
           theme="light"
         />
         <ScrollToTop>
+          <SimpleBackdrop />
           <Navbar />
           <Routes>
             <Route element={<LandingPage />} path="/aboutus" />

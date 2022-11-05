@@ -3,18 +3,42 @@ import { Link } from "react-router-dom";
 import logo from "../../img/WOW.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Box,
+  Typography,
+  Tooltip,
+  IconButton,
+  Avatar,
+  Menu,
+  MenuItem,
+  Stack,
+} from "@mui/material";
 import { Context } from "../store/appContext";
 import isEmpty from "is-empty";
+import StyledBadge from "./CustomAvatar";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const { me } = store;
   const [user, setUser] = useState(me);
+  const [open, setOpen] = useState(false);
+  const anchorRef = React.useRef();
+  const [anchorEl, setAnchorEl] = useState();
+
+  useEffect(() => {
+    setTimeout(() => setAnchorEl(anchorRef?.current), 1);
+  }, [anchorRef]);
+
   useEffect(() => {
     setUser(me);
   }, [me]);
-  console.log(user, "navbar///");
+
+  const onCloseSesion = () => {
+    setOpen(!open);
+    actions.logout();
+  };
+
   return (
     <nav className="navbar navbar-dark">
       <div className="container">
@@ -31,19 +55,53 @@ export const Navbar = () => {
           <div className="title">OW!</div>
         </div>
         <div className="ml-auto">
-          <Link to="/login">
-            {isEmpty(user) ? (
-              <Button type="submit" variant="contained" color="secondary">
+          {isEmpty(user) ? (
+            <Link to="/login">
+              <Button variant="contained" color="secondary">
                 <FontAwesomeIcon icon={faRightToBracket} />
                 Iniciar Sesión
               </Button>
-            ) : (
-              <Button variant="contained" color="secondary">
-                <FontAwesomeIcon icon={faRightToBracket} />
-                Cerrar Sesión
-              </Button>
-            )}
-          </Link>
+            </Link>
+          ) : (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Opciones de usuario">
+                <IconButton onClick={() => setOpen(!open)} sx={{ p: 0 }}>
+                  <Stack direction="row" spacing={2}>
+                    <StyledBadge
+                      overlap="circular"
+                      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                      variant="dot"
+                    >
+                      <Avatar alt={store.me.name} src={store.me.url_image} />
+                    </StyledBadge>
+                  </Stack>
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "55px" }}
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                onClose={() => setOpen(!open)}
+              >
+                <MenuItem key="profile" onClick={() => setOpen(!open)}>
+                  <Typography textAlign="center">Perfil</Typography>
+                </MenuItem>
+                <MenuItem key="logout" onClick={() => onCloseSesion()}>
+                  <Typography textAlign="center">Cerrar sesión</Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
+          )}
         </div>
       </div>
     </nav>

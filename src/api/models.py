@@ -7,17 +7,18 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
-    last_name = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120), nullable=False)
+    last_name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    hashed_password = db.Column(db.String(480), unique=False, nullable=False)
+    hashed_password = db.Column(db.String(480), nullable=False)
     salt= db.Column(db.String(250), nullable=False)
-    birth_date = db.Column(db.String(), unique=True, nullable=False)
-    phone = db.Column(db.String(120), unique=True, nullable=False)
-    rol = db.Column(db.String(20), unique=True, nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True),  server_default=func.now())
+    birth_date = db.Column(db.String(), nullable=False)
+    phone = db.Column(db.String(120), nullable=False)
+    rol = db.Column(db.String(20), nullable=False)
+    url_image = db.Column(db.String(250))
+    created_at = db.Column(db.DateTime(timezone=True),  default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),  onupdate=func.now())
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    is_active = db.Column(db.Boolean(), nullable=False)
 
     events = db.relationship('Event', backref='user', lazy=True)
     comments = db.relationship('Comment', backref='user', lazy=True)
@@ -46,7 +47,7 @@ class User(db.Model):
             salt_bytes = bcrypt.gensalt()
             salt = salt_bytes.decode()
             hashed_password = generate_password_hash(f'{body["password"]}{salt}')
-            new_user = cls(name=body["name"], last_name=body["last_name"], birth_date=body["birth_date"], phone=body["phone"], rol=body["rol"], email=body["email"], hashed_password=hashed_password, salt=salt, is_active=True)
+            new_user = cls(name=body["name"], last_name=body["last_name"], birth_date=body["birth_date"], phone=body["phone"], rol=body["rol"], url_image=body["url_image"], email=body["email"], hashed_password=hashed_password, salt=salt, is_active=True)
             if not isinstance(new_user, cls):
                 raise Exception({
                     "message": "Instance error",
@@ -102,6 +103,7 @@ class User(db.Model):
             db.session.commit() #Creamos el registro en la db 
             return True
         except Exception as error:
+            print(error)
             db.session.rollback() #Retornamos a la session mas reciente
             return False
 
@@ -113,6 +115,7 @@ class User(db.Model):
             "birth_date": self.birth_date,
             "phone": self.phone,
             "rol": self.rol,
+            "url_image": self.url_image,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
             "is_active": self.is_active
@@ -120,17 +123,17 @@ class User(db.Model):
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(120), unique=True, nullable=False)
-    address = db.Column(db.String(120), unique=True, nullable=False)
-    price = db.Column(db.String(12), unique=True, nullable=False)
-    description = db.Column(db.String(180), unique=True, nullable=False)
-    category = db.Column(db.String(120), unique=True, nullable=False)
-    start_day = db.Column(db.Date(), unique=True, nullable=False)
-    end_day = db.Column(db.Date(), unique=True, nullable=False)
-    geolocation = db.Column(db.String(120), unique=True, nullable=False)
-    img_url = db.Column(db.String(120), unique=True, nullable=False)
-    created_at = db.Column(db.Date(), unique=True, nullable=False)
-    updated_at = db.Column(db.Date(), unique=True, nullable=False)
+    title = db.Column(db.String(120), nullable=False)
+    address = db.Column(db.String(120), nullable=False)
+    price = db.Column(db.String(12), nullable=False)
+    description = db.Column(db.String(180), nullable=False)
+    category = db.Column(db.String(120), nullable=False)
+    start_day = db.Column(db.Date(), nullable=False)
+    end_day = db.Column(db.Date())
+    geolocation = db.Column(db.String(120), nullable=False)
+    img_url = db.Column(db.String(120), nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True),  default=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True),  onupdate=func.now())
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     comments = db.relationship('Comment', backref='event', lazy=True)
