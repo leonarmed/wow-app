@@ -12,7 +12,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     hashed_password = db.Column(db.String(480), nullable=False)
     salt= db.Column(db.String(250), nullable=False)
-    birth_date = db.Column(db.String(), nullable=False)
+    birth_date = db.Column(db.String(100), nullable=False)
     phone = db.Column(db.String(120), nullable=False)
     rol = db.Column(db.String(20), nullable=False)
     url_image = db.Column(db.String(250))
@@ -47,7 +47,12 @@ class User(db.Model):
             salt_bytes = bcrypt.gensalt()
             salt = salt_bytes.decode()
             hashed_password = generate_password_hash(f'{body["password"]}{salt}')
-            new_user = cls(name=body["name"], last_name=body["last_name"], birth_date=body["birth_date"], phone=body["phone"], rol=body["rol"], url_image=body["url_image"], email=body["email"], hashed_password=hashed_password, salt=salt, is_active=True)
+            new_user = cls(name=body["name"], last_name=body["last_name"], birth_date=body["birth_date"], phone=body["phone"], rol=body["rol"], email=body["email"], hashed_password=hashed_password, salt=salt, is_active=True)
+            print('     ')
+            print('     ')
+            print(new_user)
+            print('     ')
+            print('     ')
             if not isinstance(new_user, cls):
                 raise Exception({
                     "message": "Instance error",

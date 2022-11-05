@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: bb9f9c289824
+Revision ID: 19ff6c01a455
 Revises: 
-Create Date: 2022-11-03 01:41:14.238094
+Create Date: 2022-11-05 17:41:36.088638
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bb9f9c289824'
+revision = '19ff6c01a455'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,18 +28,12 @@ def upgrade():
     sa.Column('birth_date', sa.Date(), nullable=False),
     sa.Column('phone', sa.String(length=120), nullable=False),
     sa.Column('rol', sa.String(length=20), nullable=False),
-    sa.Column('created_at', sa.Date(), nullable=False),
-    sa.Column('updated_at', sa.Date(), nullable=False),
+    sa.Column('url_image', sa.String(length=250), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('birth_date'),
-    sa.UniqueConstraint('created_at'),
-    sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('last_name'),
-    sa.UniqueConstraint('name'),
-    sa.UniqueConstraint('phone'),
-    sa.UniqueConstraint('rol'),
-    sa.UniqueConstraint('updated_at')
+    sa.UniqueConstraint('email')
     )
     op.create_table('event',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -49,25 +43,14 @@ def upgrade():
     sa.Column('description', sa.String(length=180), nullable=False),
     sa.Column('category', sa.String(length=120), nullable=False),
     sa.Column('start_day', sa.Date(), nullable=False),
-    sa.Column('end_day', sa.Date(), nullable=False),
+    sa.Column('end_day', sa.Date(), nullable=True),
     sa.Column('geolocation', sa.String(length=120), nullable=False),
     sa.Column('img_url', sa.String(length=120), nullable=False),
-    sa.Column('created_at', sa.Date(), nullable=False),
-    sa.Column('updated_at', sa.Date(), nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('address'),
-    sa.UniqueConstraint('category'),
-    sa.UniqueConstraint('created_at'),
-    sa.UniqueConstraint('description'),
-    sa.UniqueConstraint('end_day'),
-    sa.UniqueConstraint('geolocation'),
-    sa.UniqueConstraint('img_url'),
-    sa.UniqueConstraint('price'),
-    sa.UniqueConstraint('start_day'),
-    sa.UniqueConstraint('title'),
-    sa.UniqueConstraint('updated_at')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('assist',
     sa.Column('id', sa.Integer(), nullable=False),

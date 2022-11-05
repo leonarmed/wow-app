@@ -72,7 +72,10 @@ export const Navbar = () => {
                       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                       variant="dot"
                     >
-                      <Avatar alt={store.me.name} src={store.me.url_image} />
+                      <Avatar
+                        alt={store.me.name}
+                        src={`${store.me.url_image}`}
+                      />
                     </StyledBadge>
                   </Stack>
                 </IconButton>
