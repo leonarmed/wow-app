@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { request } from "../../services/api";
 import { Context } from "../../store/appContext";
+import HandlerError from "../../utils/HandleError";
 
 export default function LoginControllers() {
   const { store, actions } = useContext(Context);
@@ -63,8 +64,8 @@ export default function LoginControllers() {
       actions.getUserInfo();
       navigate("/");
     } catch (error) {
-      console.log(error);
-      // HandlerError(error);
+      // console.log(error);
+      HandlerError(error);
     } finally {
       actions.isLoading(false);
     }
@@ -72,22 +73,31 @@ export default function LoginControllers() {
 
   const onRegister = async (params) => {
     Object.assign(params, { rol: "registered" });
-    try {
-      actions.isLoading(true);
-      const response = await request({
-        method: "POST",
-        path: "/api/register",
-        params,
+    actions.isLoading(true);
+    const response = await request({
+      method: "POST",
+      path: "/api/register",
+      params,
+    })
+      // .then(async (res) => {
+      //   console.log(await res, "????");
+      //   if (!res.ok) {
+      //     const { message } = await res.json();
+      //     throw Error(message);
+      //   }
+      //   const { email, password } = params;
+      //   onLogin({ email, password });
+      // })
+      // .catch(async (error) => {
+      //   console.log(error);
+      //   HandlerError(error);
+      //   actions.isLoading(false);
+      // });
+      .then(async (res) => {
+        console.log(await res, "res///");
+        actions.isLoading(false);
       });
-
-      const { email, password } = params;
-      onLogin({ email, password });
-    } catch (error) {
-      console.log(error);
-      // HandlerError(error);
-    } finally {
-      actions.isLoading(false);
-    }
+    console.log(response, "response");
   };
 
   return {

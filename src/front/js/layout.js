@@ -14,6 +14,8 @@ import { Footer } from "./component/footer";
 import Login from "./pages/Login/Login";
 import "react-toastify/dist/ReactToastify.css";
 import SimpleBackdrop from "./component/BackdropLoader";
+import PublicRoute from "./routes/PublicRoutes";
+import PrivateRoute from "./routes/PrivateRoutes";
 
 //create your first component
 const Layout = () => {
@@ -39,14 +41,30 @@ const Layout = () => {
           <SimpleBackdrop />
           <Navbar />
           <Routes>
-            <Route element={<LandingPage />} path="/aboutus" />
-            <Route element={<Home />} path="/" />
+            <Route index element={<Home />} />
+            <Route path="/aboutus" element={<Login />} />
+            <Route>
+              <Route
+                path="/event/:theid"
+                element={
+                  <PrivateRoute>
+                    <CardDetails />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/myprofile"
+                element={
+                  <PrivateRoute>
+                    <Perfil />
+                  </PrivateRoute>
+                }
+              />
+            </Route>
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Login />} path="/login" />
             <Route element={<h1>Not found!</h1>} />
-            <Route element={<CardDetails />} path="/event/:theid" />
-            <Route element={<Perfil />} path="/myprofile" />
           </Routes>
           {window.location.pathname != "/aboutus" && <Footer />}
         </ScrollToTop>

@@ -17,6 +17,7 @@ import {
 import { Context } from "../store/appContext";
 import isEmpty from "is-empty";
 import StyledBadge from "./CustomAvatar";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -25,6 +26,7 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const anchorRef = React.useRef();
   const [anchorEl, setAnchorEl] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => setAnchorEl(anchorRef?.current), 1);
@@ -96,7 +98,7 @@ export const Navbar = () => {
                 open={open}
                 onClose={() => setOpen(!open)}
               >
-                <MenuItem key="profile" onClick={() => setOpen(!open)}>
+                <MenuItem key="profile" onClick={() => navigate("/myprofile")}>
                   <Typography textAlign="center">Perfil</Typography>
                 </MenuItem>
                 <MenuItem key="logout" onClick={() => onCloseSesion()}>

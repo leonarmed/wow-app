@@ -8,22 +8,22 @@ export async function request({ method, path, customHeaders, params }) {
     Object.assign(headers, customHeaders);
   }
 
-  try {
-    const res = await fetch(process.env.BACKEND_URL + path, {
-      method,
-      headers,
-      body: JSON.stringify(params),
-    });
+  fetch(process.env.BACKEND_URL + path, {
+    method,
+    headers,
+    body: JSON.stringify(params),
+  })
+  .then(async (res) => {
     if (!res.ok) {
       const { message } = await res.json();
-      HandlerError(message, "error");
-      throw error(`${message}`);
+      throw Error(`${message}`);
     }
     const body = await res.json();
-    HandlerError(body.message, "success");
-    return body.data;
-  } catch ({ error }) {
-    HandlerError(error);
-    return error;
-  }
+    console.log(body, "body");
+    return body;
+  })
+  .catch(async (error) => {
+    const { message } = error;
+    HandlerError(message, "error");
+  });
 }
