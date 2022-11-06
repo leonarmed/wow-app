@@ -10,7 +10,7 @@ export default function Cards({ data }) {
   const { store, actions } = useContext(Context);
   const { title, image_url, price, ratings, start_day } = data;
   return (
-    <div className="card box mb-5 me-4 bg-body rounded">
+    <div className="card box mb-2 me-3 bg-body rounded">
       <img
         src={image_url ? image_url : imagen}
         className="card-img-top"

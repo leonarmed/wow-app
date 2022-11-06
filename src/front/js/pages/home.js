@@ -155,7 +155,7 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* <h1>Hello Rigo!!</h1>
+      {/* <h1>Hello Rigo!!</h1> 
       <p>
         <img src={rigoImageUrl} />
       </p>
