@@ -36,7 +36,7 @@ class User(db.Model):
             user_is_valid = cls.user_exist(email=body.get("email"))
             if isinstance(user_is_valid, cls):
                 raise Exception({
-                    "message": "Invalid user",
+                    "message": "Usuario invalido",
                     "status": 400
                 })
             if(user_is_valid) != False:
@@ -55,13 +55,13 @@ class User(db.Model):
             print('     ')
             if not isinstance(new_user, cls):
                 raise Exception({
-                    "message": "Instance error",
+                    "message": "Error interno de aplicación",
                     "status": 500
                 })
             saved = new_user.save_and_commit()
             if not saved:
                 raise Exception({
-                    "message": "Database error",
+                    "message": "Error de Base de datos",
                     "status": 500
                 })
             return new_user
@@ -85,13 +85,13 @@ class User(db.Model):
             user = cls.user_exist(email=kwargs["email"])
             if not isinstance(user, cls):
                 raise Exception({
-                    "message": "Invalid credentials",
+                    "message": "Usuario/Contraseña invalidos",
                     "status": 400
                 })
             password_is_valid = check_password_hash(user.hashed_password, f'{kwargs["password"]}{user.salt}')
             if not password_is_valid:
                 raise Exception({
-                    "message": "Invalid credentials",
+                    "message": "Usuario/Contraseña invalidos",
                     "status": 400
                 })
             return user
@@ -120,6 +120,7 @@ class User(db.Model):
             "birth_date": self.birth_date,
             "phone": self.phone,
             "rol": self.rol,
+            "email": self.email,
             "url_image": self.url_image,
             "created_at": self.created_at,
             "updated_at": self.updated_at,

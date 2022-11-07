@@ -53,51 +53,39 @@ export default function LoginControllers() {
   });
 
   const onLogin = async (params) => {
-    try {
-      actions.isLoading(true);
-      const response = await request({
-        method: "POST",
-        path: "/api/login",
-        params,
-      });
-      localStorage.setItem("token", response.token);
-      actions.getUserInfo();
-      navigate("/");
-    } catch (error) {
-      // console.log(error);
-      HandlerError(error);
-    } finally {
-      actions.isLoading(false);
-    }
+    actions.isLoading(true);
+    request({
+      method: "POST",
+      path: "/api/login",
+      params,
+    })
+      .then((res) => {
+        localStorage.setItem("token", res.token);
+        actions.getUserInfo();
+        navigate("/");
+      })
+      .catch((error) => HandlerError(error))
+      .then(actions.isLoading(false));
   };
 
   const onRegister = async (params) => {
     Object.assign(params, { rol: "registered" });
     actions.isLoading(true);
-    const response = await request({
+    request({
       method: "POST",
       path: "/api/register",
       params,
     })
-      // .then(async (res) => {
-      //   console.log(await res, "????");
-      //   if (!res.ok) {
-      //     const { message } = await res.json();
-      //     throw Error(message);
-      //   }
-      //   const { email, password } = params;
-      //   onLogin({ email, password });
-      // })
-      // .catch(async (error) => {
-      //   console.log(error);
-      //   HandlerError(error);
-      //   actions.isLoading(false);
-      // });
-      .then(async (res) => {
-        console.log(await res, "res///");
-        actions.isLoading(false);
-      });
-    console.log(response, "response");
+      .then((res) => {
+        if (res) {
+          console.log(res, "res///");
+          const { email, password } = params;
+          onLogin({ email, password });
+          actions.isLoading(false);
+        }
+      })
+      .catch((error) => HandlerError(error))
+      .then(actions.isLoading(false));
   };
 
   return {

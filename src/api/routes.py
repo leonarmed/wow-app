@@ -106,7 +106,7 @@ def create_user():
     user = User.query.filter_by(email=new_user.email).one_or_none()
     return jsonify({
         "success": True,
-        "message": "User was created successfully",
+        "message": "Usuario creado exitosamente",
         "data": user.serialize()
     }), 201
 
@@ -122,7 +122,7 @@ def login():
     access_token = create_access_token(identity=valid_credentials.id)
     print(access_token)
     return jsonify({
-        "message": "Success verification",
+        "message": "Verificación exitosa",
         "success": True,
         "data": {"token": access_token}
     }), 200
@@ -134,7 +134,7 @@ def get_data_user():
     user = User.query.get(user_id)
     if not user:
         return jsonify({
-            "message": "Not found",
+            "message": "Usuario no encontrado",
             "success": False
         }),404
     return jsonify({
