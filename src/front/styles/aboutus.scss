@@ -8,13 +8,16 @@
     margin-top: 8%;
    }
 }
-.scrolldown{
-    margin-top: 5%;
+.scrolldown2{
+    background-color: rgb(226, 226, 226);
     .images{
         width: 180px;
         text-align: justify;
         &.text{
             display: block;
+        }
+        .flux{
+            width: 200px !important;
         }
     }
     

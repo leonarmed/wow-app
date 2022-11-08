@@ -7,7 +7,7 @@ import mui from '../../img/MUI.png'
 import html from '../../img/html5.png'
 import flask from '../../img/flask.png'
 import react from '../../img/react.png'
-import flux from '../../img/flux.png'
+import flux from '../../img/fluxx.png'
 import cloudinary from '../../img/cloudinary.png'
 function AboutUs() {
   return (
@@ -16,12 +16,12 @@ function AboutUs() {
   <div className="d-flex container-fluid upperhero" lc-helper="background" >
     .
   </div>
-  <div className="container p-5 textbox justify-content-center align-items-center" style={{backgroundColor:"rgb(226 226 226)"}}>
+  <div className="container p-3 textbox justify-content-center align-items-center" style={{backgroundColor:"rgb(226 226 226)"}}>
     <div className="row">
       <div className="col-md-4 text-center align-self-center">
         <div className="lc-block border-end border-2 border-dark ">
           <div editable="rich">
-            <p className="display-5 text-secondary">POR QUÉ WOW?</p>
+            <p className="display-3 text-secondary">POR QUÉ WOW?</p>
           </div>
         </div>
       </div>
@@ -37,19 +37,28 @@ function AboutUs() {
       <div className="col-md-9 offset-md-1">
         <div className="lc-block mt-5">
           <div editable="rich">
-            <p className="lead text-black">Como tú, siempre hemos buscado el enriquecernos con actividades recreativas y culturales, son necesarias para todos y son parte fundamental de la vida de una persona sana.</p>
-            <p className="lead text-black"> Queremos facilitar que esto pase, tanto para quienes hacen los eventos, como para quienes asisten. Vamos a hacer crecer a todos los que formen parte de un evento con Wow, y hacerlos vivir una experiencia inolvidable. </p>
+            <p className="lead text-black fs-3">Como tú, siempre hemos buscado el enriquecernos con actividades recreativas y culturales, son necesarias para todos y son parte fundamental de la vida de una persona sana.</p>
+            <p className="lead text-black fs-3"> Queremos facilitar que esto pase, tanto para quienes hacen los eventos, como para quienes asisten. Vamos a hacer crecer a todos los que formen parte de un evento con Wow, y hacerlos vivir una experiencia inolvidable. </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div className='scrolldown container-fluid mb-5' >
-    <div className='display-5 justify-content-center d-flex border-bottom border-warning '>
+<div className='scrolldown1 container-fluid py-5' >
+  <div className='display-3 justify-content-center d-flex border-bottom border-warning '>
+    Programadores:
+    
+  </div>
+  <div className="justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2">
+  Este proyecto fue construido en conjunto por Joel Medina, Juan Araque y Tito Balza. Todos participantes del bootcamp de 4Geeks Venezuela. 
+  </div>
+</div>
+<div className='scrolldown2 container-fluid py-5' >
+    <div className='display-3 justify-content-center d-flex border-bottom border-warning '>
     Cómo lo hicimos?
     </div>
-    <p className='justify-content-center d-flex fs-5 text mt-5 ps-2 pe-2'> Este proyecto fue construido en conjunto por Joel Medina, Juan Araque y Tito Balza. Todos participantes del bootcamp de 4Geeks Venezuela. Queremos llegarle a un público de todas las edades y queremos que volvamos todos a sentirnos confiados de salir a la calle. <br></br><br></br>
+    <p className='justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2'> 
     Para hacer esta página usamos distintos lenguajes de programación y/o librerías:
     </p>
     <div className='d-flex flex-wrap justify-content-around mt-5'>
@@ -91,8 +100,8 @@ function AboutUs() {
         </img>
         <p className='text d-flex align-items-end '>Flask</p>
       </div>
-      <div className='d-flex flex-wrap images justify-content-center'>
-        <img src={flux} className='h-5 images'>
+      <div className='d-flex flex-wrap images justify-content-center '>
+        <img src={flux} className='h-5 images flux'>
         </img>
         <p className='text d-flex align-items-end '>Flux</p>
       </div>

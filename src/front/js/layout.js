@@ -42,7 +42,7 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route index element={<Home />} />
-            <Route path="/aboutus" element={<Login />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route>
               <Route
                 path="/event/:theid"
