@@ -11,72 +11,72 @@ export const Home = () => {
   const events = [
     {
       id: 1,
-      category: "Tour",
       title: "Geohistorical Tour of the Spiritual Capital of Venezuela ",
-      startDate: "25/10/2022 00:30:00",
-      endDate: null,
-      city: "Guanare",
-      state: "Portuguesa",
+      address: "Test 1",
       price: "140$",
-      likes: 4,
+      description: "Prueba de descripción",
+      category: "Tour",
+      start_day: "25/10/2022 00:30:00",
+      end_day: null,
       geolocation: "https://goo.gl/maps/cqK32jmie4ht5Dvp9",
-      urlImage:
+      ratings: 4,
+      image_url:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcp_p-n-Ql552fTXjyEEdlNWDlRhSSPLBOyg&usqp=CAU",
     },
     {
       id: 2,
-      category: "Concierto",
       title: "Concierto de Aterciopelados",
-      startDate: "27/10/2022 19:00:00",
-      endDate: null,
-      city: "Caracas",
-      state: "Miranda",
+      address: "Test 2",
       price: "80$",
-      likes: 3,
+      description: "Pruea de descripcion 2",
+      category: "Concierto",
+      start_day: "27/10/2022 19:00:00",
+      end_day: null,
       geolocation: "https://goo.gl/maps/5NQ5UDL8DRcYVgdG6",
-      urlImage:
+      ratings: 3,
+      image_url:
         "https://www.elpais.com.co/files/article_main/uploads/2019/12/15/5df6a3a95a607.png",
     },
     {
       id: 3,
-      category: "Concierto",
       title: "Concierto de Nelson Arrieta",
-      startDate: "27/10/2022 19:00:00",
-      endDate: null,
-      city: "Caracas",
-      state: "Miranda",
+      address: "Test 3",
       price: "160$",
-      likes: 5,
+      description: "Desripcion 3",
+      category: "Concierto",
+      start_day: "27/10/2022 19:00:00",
+      end_day: null,
       geolocation: "https://goo.gl/maps/KyrppB3CTxiYoesq6",
-      urlImage:
+      ratings: 5,
+      image_url:
         "https://w2-noticierovenevision-net.s3.amazonaws.com/public/media/images/nelson-65b53a.jpg",
     },
     {
       id: 4,
-      category: "Ferias",
       title: "Expo TecnoDigital",
-      startDate: "28/10/2022 19:00:00",
-      endDate: null,
-      city: "Valencia",
-      state: "Carabobo",
+      address: "Test 4",
       price: "50$",
-      likes: 4,
+      description: "Descripcion 4",
+      category: "Ferias",
+      start_day: "28/10/2022 19:00:00",
+      end_day: null,
       geolocation: "https://g.page/Hesperia-WTC-Valencia?share",
-      urlImage:
+      rating: 4,
+      image_url:
         "https://i0.wp.com/folou.co/wp-content/uploads/2020/06/39705595822_5ee240c176_k-1.jpg?fit=1200%2C675&ssl=1",
     },
     {
       id: 5,
-      category: "Otros",
       title: "K-Pop Horror Fest",
-      startDate: "30/10/2022 12:00:00",
-      endDate: "30/10/2022 17:00:00",
-      city: "Valencia",
-      state: "Carabobo",
+      address: "Test 5",
       price: "20$",
-      likes: 3,
+      description: "Descripción 5",
+      category: "Otros",
+      start_day: "30/10/2022 12:00:00",
+      end_day: "30/10/2022 17:00:00",
       geolocation: "https://goo.gl/maps/Vaj2SHKJ8oo79s1WA",
-      urlImage:
+      rating: 3,
+      image_url:
         "https://cdn-az.allevents.in/events6/banners/22f1efb8a04e0ed16719c583cd68e9e39b15a29da8cd3402f1479645cfb17e67-rimg-w960-h443-gmir.jpg?v=1664062048",
     },
   ];
@@ -155,7 +155,7 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* <h1>Hello Rigo!!</h1>
+      {/* <h1>Hello Rigo!!</h1> 
       <p>
         <img src={rigoImageUrl} />
       </p>

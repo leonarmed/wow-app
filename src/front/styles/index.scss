@@ -11,6 +11,25 @@ body {
   color: #202124;
 }
 
-.MuiInput-underline:after{
+.MuiInput-underline:after {
   border-bottom-color: red;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid none;
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: none inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.MuiInputBase-input{
+  font: -webkit-control;
 }
