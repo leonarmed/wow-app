@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 62f60b55525a
+Revision ID: 04753f5b16b2
 Revises: 
-Create Date: 2022-11-07 00:14:33.890218
+Create Date: 2022-11-08 00:04:05.757046
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '62f60b55525a'
+revision = '04753f5b16b2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,10 +40,10 @@ def upgrade():
     sa.Column('title', sa.String(length=120), nullable=False),
     sa.Column('address', sa.String(length=120), nullable=False),
     sa.Column('price', sa.String(length=12), nullable=False),
-    sa.Column('description', sa.String(length=180), nullable=False),
+    sa.Column('description', sa.String(length=500), nullable=False),
     sa.Column('category', sa.String(length=120), nullable=False),
-    sa.Column('start_day', sa.Date(), nullable=False),
-    sa.Column('end_day', sa.Date(), nullable=True),
+    sa.Column('start_day', sa.String(length=15), nullable=False),
+    sa.Column('end_day', sa.String(length=15), nullable=True),
     sa.Column('geolocation', sa.String(length=120), nullable=False),
     sa.Column('img_url', sa.String(length=120), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
