@@ -132,12 +132,12 @@ class Event(db.Model):
     title = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(120), nullable=False)
     price = db.Column(db.String(12), nullable=False)
-    description = db.Column(db.String(180), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
     category = db.Column(db.String(120), nullable=False)
-    start_day = db.Column(db.Date(), nullable=False)
-    end_day = db.Column(db.Date())
+    start_day = db.Column(db.String(15), nullable=False)
+    end_day = db.Column(db.String(15))
     geolocation = db.Column(db.String(120), nullable=False)
-    img_url = db.Column(db.String(120), nullable=False)
+    img_url = db.Column(db.String(320), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),  default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),  onupdate=func.now())
 
@@ -180,7 +180,7 @@ class Event(db.Model):
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(120), unique=True, nullable=False)
+    content = db.Column(db.String(220), unique=True, nullable=False)
     created_at = db.Column(db.Date(), unique=True, nullable=False)
     updated_at = db.Column(db.Date(), unique=True, nullable=False)
 
@@ -202,7 +202,7 @@ class Comment(db.Model):
 
 class Rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    rate = db.Column(db.String(3), unique=True, nullable=False)
+    rate = db.Column(db.String(5), unique=True, nullable=False)
     created_at = db.Column(db.Date(), unique=True, nullable=False)
     updated_at = db.Column(db.Date(), unique=True, nullable=False)
 
