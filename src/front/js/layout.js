@@ -5,7 +5,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Perfil } from "./pages/perfil"
-import LandingPage from "./pages/landingpage";
+import AboutUs from "./pages/aboutus";
 import injectContext from "./store/appContext";
 import CardDetails from "./pages/carddetails"
 import { Navbar } from "./component/navbar";
@@ -24,7 +24,7 @@ const Layout = () => {
         <ScrollToTop>
           <Navbar />
           <Routes>
-            <Route element={<LandingPage />} path="/aboutus" />
+            <Route element={<AboutUs />} path="/aboutus" />
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />

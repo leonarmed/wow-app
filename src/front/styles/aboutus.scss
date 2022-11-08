@@ -1,0 +1,21 @@
+.aboutus{ 
+    height: 10%;
+    object-fit: cover;
+    width: 100%!important;
+    background-size: 100%!important;
+    background-repeat: no-repeat;
+   .textbox{
+    margin-top: 8%;
+   }
+}
+.scrolldown{
+    margin-top: 5%;
+    .images{
+        width: 180px;
+        text-align: justify;
+        &.text{
+            display: block;
+        }
+    }
+    
+}
