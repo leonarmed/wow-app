@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { Perfil } from "./pages/perfil";
+import { Perfil } from "./pages/Profile/perfil";
 import LandingPage from "./pages/landingpage";
 import injectContext from "./store/appContext";
 import CardDetails from "./pages/carddetails";

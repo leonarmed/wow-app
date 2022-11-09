@@ -27,6 +27,9 @@ export default function PlaygroundSpeedDial() {
         ariaLabel="SpeedDial"
         icon={<ShareIcon />}
         direction={"down"}
+        FabProps={{
+          color: "secondary",
+        }}
       >
         {actions.map((action) => (
           <SpeedDialAction

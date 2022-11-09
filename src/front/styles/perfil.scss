@@ -1,37 +1,49 @@
-.left{
-    background-color: white;
-    border-radius: 15px;
-    height: fit-content;
+.left {
+  background-color: white;
+  border-radius: 15px;
+  height: fit-content;
 }
-.right{ 
-    height: inherit;
+.right {
+  height: inherit;
 }
-.profile-pic{
-    width: 30vh;
-    height: 30vh;
-    border-radius: 50%;
-    object-fit: cover;
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
-.main-container{
-    background-color: rgba(175, 175, 175, 0.408);
-    border-radius: 20px;
+.main-container {
+  background-color: rgba(175, 175, 175, 0.408);
+  border-radius: 20px;
 }
-.card-favoritos{
-    background-color: white;
-    border-radius: 15px;
+.card-favoritos {
+  background-color: white;
+  border-radius: 15px;
 }
-.card-header{
-    background-color: rgba(255, 255, 255, 0);
+.card-header {
+  background-color: rgba(255, 255, 255, 0);
 }
-.information{
-    border-bottom: 1px solid rgba(146, 146, 146, 0.167);
+.information {
+  border-bottom: 1px solid rgba(146, 146, 146, 0.167);
 }
-.other-info{
-    width: 50vh;
-    background-color: rgba(197, 67, 197, 0.421);
-    border-radius: 15px;
+.other-info {
+  width: 100%;
+  background-color: rgba(197, 67, 197, 0.421);
+  border-radius: 15px;
 }
-.edit-btn{
-    width: 40vh;
-    border-radius: 15px;
+.edit-btn {
+  width: 40vh;
+  border-radius: 15px;
+}
+
+.custom-input-file {
+  width: 100%;
+  text-align: center;
+  border: 1px dashed #c4c4c3;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  input {
+    display: none;
+  }
 }

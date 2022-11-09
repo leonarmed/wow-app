@@ -22,9 +22,12 @@ export async function request({ method, path, customHeaders, params }) {
       HandlerError(body.message, "success");
       return body.data;
     })
-    .catch(async (error) => {
-      const { message } = error;
-      HandlerError(message, "error");
+    .catch((error) => {
+      let msgError = "El token ha expirado";
+      if (error.message !== "undefined") {
+        msgError = error.message;
+      }
+      HandlerError(msgError, "error");
     });
   return res;
 }

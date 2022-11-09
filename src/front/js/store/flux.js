@@ -80,6 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
           actions.saveUserInfo(response);
         } catch (error) {
+          window.location.pathname = "/";
           console.log(error);
         }
       },

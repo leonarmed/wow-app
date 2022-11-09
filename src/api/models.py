@@ -48,11 +48,6 @@ class User(db.Model):
             salt = salt_bytes.decode()
             hashed_password = generate_password_hash(f'{body["password"]}{salt}')
             new_user = cls(name=body["name"], last_name=body["last_name"], birth_date=body["birth_date"], phone=body["phone"], rol=body["rol"], email=body["email"], hashed_password=hashed_password, salt=salt, is_active=True)
-            print('     ')
-            print('     ')
-            print(new_user)
-            print('     ')
-            print('     ')
             if not isinstance(new_user, cls):
                 raise Exception({
                     "message": "Error interno de aplicación",
@@ -94,6 +89,22 @@ class User(db.Model):
                     "message": "Usuario/Contraseña invalidos",
                     "status": 400
                 })
+            return user
+        except Exception as error:
+            return error.args[0]
+    
+    @classmethod
+    def update_user(cls, body, user_id):
+        try:
+            user = cls.query.get(user_id)
+            if body.get("phone"):
+                user.phone = body["phone"]
+            if body.get("password"):
+                hashed_password = generate_password_hash(f'{body["password"]}{user.salt}')
+                user.hashed_password = hashed_password
+            if body.get("url_image"):
+                user.url_image = body["url_image"]
+            db.session.commit()
             return user
         except Exception as error:
             return error.args[0]
