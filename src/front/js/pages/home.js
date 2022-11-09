@@ -1,14 +1,55 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import Header from "../component/Home/Header";
 import Cards from "../component/Home/Cards/Cards";
 import Carousel from "../component/Carousel";
+import { request } from "../services/api";
+import HandlerError from "../utils/HandleError";
+import isEmpty from "is-empty";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const events = [
+  //const {events, setEvents} = useState([])
+  
+   async function getEvents() {
+    actions.isLoading(true);
+    const x = request({
+      method: "GET",
+      path: "/api/events"
+    })
+      .then((res) => {
+        if (res){
+          console.log(res, "res///");
+          actions.isLoading(false);
+        }
+      })
+      .catch((error) => HandlerError(error))
+      .then(actions.isLoading(false));
+      console.log(await x)
+  }
+  useEffect(() => {
+    //getEvents()
+    x()
+  },[])
+
+  async function x(){
+    try {
+      const res = await fetch(`${process.env.BACKEND_URL}/api/events`)
+      if(!res.ok){
+        console.log(res)
+      }
+      const body = await res.json()
+      console.log(body)
+    } catch (error) {
+      console.log('error')
+    }
+  }
+
+  
+
+  let events = [
     {
       id: 1,
       title: "Geohistorical Tour of the Spiritual Capital of Venezuela ",
@@ -148,7 +189,7 @@ export const Home = () => {
         <h3 className="my-4 text-start">Próximos eventos</h3>
         <div className="overflow-auto">
           <div className="card-container d-flex">
-            {events.map((event) => {
+            {!isEmpty(events) && events.map((event) => {
               return <Cards key={event.id} data={event} />;
             })}
           </div>
