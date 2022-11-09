@@ -30,7 +30,7 @@ export const Home = () => {
       console.log(await x)
   }
   useEffect(() => {
-    //getEvents()
+    
     x()
   },[])
 
