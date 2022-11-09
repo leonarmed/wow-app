@@ -5,8 +5,8 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { Perfil } from "./pages/perfil";
-import LandingPage from "./pages/landingpage";
+import { Perfil } from "./pages/perfil"
+import AboutUs from "./pages/aboutus";
 import injectContext from "./store/appContext";
 import CardDetails from "./pages/carddetails";
 import { Navbar } from "./component/navbar";
@@ -42,7 +42,7 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route index element={<Home />} />
-            <Route path="/aboutus" element={<Login />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route>
               <Route
                 path="/event/:theid"
