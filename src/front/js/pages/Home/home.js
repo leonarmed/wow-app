@@ -156,10 +156,7 @@ export const Home = () => {
   return (
     <div className="home text-center mt-5 d-block">
       <Header />
-      <div
-        className="container-fluid d-flex mb-4"
-        style={{ marginTop: "85px" }}
-      >
+      <div className="container-fluid d-flex mb-4">
         <div className="row w-100 m-auto">
           <div className="col-12 col-sm-6">
             <div className="sponsors-container">
