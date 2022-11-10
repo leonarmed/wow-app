@@ -1,0 +1,24 @@
+.aboutus{ 
+    height: 10%;
+    object-fit: cover;
+    width: 100%!important;
+    background-size: 100%!important;
+    background-repeat: no-repeat;
+   .textbox{
+    margin-top: 8%;
+   }
+}
+.scrolldown2{
+    background-color: rgb(226, 226, 226);
+    .images{
+        width: 180px;
+        text-align: justify;
+        &.text{
+            display: block;
+        }
+        .flux{
+            width: 200px !important;
+        }
+    }
+    
+}

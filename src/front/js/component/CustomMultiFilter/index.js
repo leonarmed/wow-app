@@ -2,13 +2,15 @@ import * as React from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
+import { Context } from "../../store/appContext";
 
 export default function CustomMultiFilter() {
+  const { actions, store } = React.useContext(Context);
   return (
     <Stack
       spacing={3}
       sx={{
-        width: { xs: '80%', sm:'400px'  },
+        width: { xs: "80%", sm: "400px" },
         display: "flex",
         justifyContent: "center",
         margin: "20px auto",
@@ -16,6 +18,7 @@ export default function CustomMultiFilter() {
     >
       <Autocomplete
         multiple
+        onChange={(event, newValue) => actions.saveFilter(newValue)}
         id="tags-outlined"
         options={top100Films}
         getOptionLabel={(option) => option.title}
@@ -35,12 +38,7 @@ export default function CustomMultiFilter() {
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
   { title: "Comida" },
-  { title: "Escapes o vida nocturna" },
   { title: "Tours" },
-  { title: "Viajes" },
-  { title: "Lecturas" },
-  { title: "Series o películas" },
   { title: "Conciertos" },
-  { title: "Motor Fest" },
   { title: "Ferias" },
 ];

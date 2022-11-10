@@ -169,7 +169,7 @@ export const Perfil = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <label for="file" className="custom-input-file">
+              <label htmlFor="file" className="custom-input-file">
                 <div>
                   <FontAwesomeIcon icon={faCamera} />
                   <div>Cambiar Imagen de perfil</div>

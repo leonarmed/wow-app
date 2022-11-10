@@ -78,10 +78,8 @@ export default function LoginControllers() {
     })
       .then((res) => {
         if (res) {
-          console.log(res, "res///");
           const { email, password } = params;
           onLogin({ email, password });
-          actions.isLoading(false);
         }
       })
       .catch((error) => HandlerError(error))

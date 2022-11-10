@@ -43,7 +43,7 @@ def get_events():
             eventos_dict = list(map(lambda evento: evento.serialize(), eventos))
             return jsonify(eventos_dict),200
         return jsonify({
-            "message": "No se encontro la informacion"
+            
         }),404
 
     except:
@@ -67,31 +67,23 @@ def get_event_byid(event_id):
         }),500
 
 @api.route('/event', methods = ['POST'])
+@jwt_required()
 def post_event():
     
     body = request.json
-    new_event = Event.create(body["title"],
-        body["address"],
-        body["price"],
-        body["description"],
-        body["category"],
-        body["start_day"],
-        body["end_day"],
-        body["geolocation"],
-        body["img_url"])
-        
-    if isinstanse(new_event, Event):
-        saved = save(new_event)
-        if not saved:
-            return jsonify({
-                "message": "Server down"
-            }),500
+    new_event = Event.create(body)
+
+    if not isinstance(new_event, Event):
         return jsonify({
-            "message": "evento creado"
-        }),201
+            "message": new_event["message"],
+            "success": False
+        }), new_event["status"]
+        
     return jsonify({
-        "message": "No se pudo crear"
-    }),500
+        "success": True,
+        "message": "Evento creado exitosamente",
+        "data": new_event.serialize()
+    }), 201
 
 @api.route('/register', methods = ['POST'])
 def create_user():

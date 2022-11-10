@@ -3,8 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import ShareIcon from "@mui/icons-material/Share";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import {Share as ShareIcon, WhatsApp as WhatsAppIcon} from "@mui/icons-material";
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: "absolute",
@@ -20,13 +19,13 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
 
 const actions = [{ icon: <WhatsAppIcon />, name: "WhatsApp" }];
 
-export default function PlaygroundSpeedDial() {
+export default function PlaygroundSpeedDial({ to }) {
   return (
-    <Box sx={{ mt: 0 }}>
+    <Box sx={{ position: 'relative', mb: 3 }}>
       <StyledSpeedDial
         ariaLabel="SpeedDial"
         icon={<ShareIcon />}
-        direction={"down"}
+        direction={"left"}
         FabProps={{
           color: "secondary",
         }}
@@ -36,6 +35,7 @@ export default function PlaygroundSpeedDial() {
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
+            onClick={() => {window.open(to, "_blank")}}
           />
         ))}
       </StyledSpeedDial>

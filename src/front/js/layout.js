@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import ScrollToTop from "./component/scrollToTop";
-import { Home } from "./pages/home";
+import { Home } from "./pages/Home/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Perfil } from "./pages/Profile/perfil";
-import LandingPage from "./pages/landingpage";
+import AboutUs from "./pages/aboutus";
 import injectContext from "./store/appContext";
 import CardDetails from "./pages/carddetails";
 import { Navbar } from "./component/navbar";
@@ -14,7 +14,6 @@ import { Footer } from "./component/footer";
 import Login from "./pages/Login/Login";
 import "react-toastify/dist/ReactToastify.css";
 import SimpleBackdrop from "./component/BackdropLoader";
-import PublicRoute from "./routes/PublicRoutes";
 import PrivateRoute from "./routes/PrivateRoutes";
 
 //create your first component
@@ -42,7 +41,7 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route index element={<Home />} />
-            <Route path="/aboutus" element={<Login />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route>
               <Route
                 path="/event/:theid"

@@ -119,7 +119,6 @@ class User(db.Model):
             db.session.commit() #Creamos el registro en la db 
             return True
         except Exception as error:
-            print(error)
             db.session.rollback() #Retornamos a la session mas reciente
             return False
 
@@ -143,12 +142,12 @@ class Event(db.Model):
     title = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(120), nullable=False)
     price = db.Column(db.String(12), nullable=False)
-    description = db.Column(db.String(180), nullable=False)
+    description = db.Column(db.String(700), nullable=False)
     category = db.Column(db.String(120), nullable=False)
-    start_day = db.Column(db.Date(), nullable=False)
-    end_day = db.Column(db.Date())
-    geolocation = db.Column(db.String(120), nullable=False)
-    img_url = db.Column(db.String(120), nullable=False)
+    start_day = db.Column(db.String(30), nullable=False)
+    end_day = db.Column(db.String(30))
+    geolocation = db.Column(db.String(500))
+    img_url = db.Column(db.String(500))
     created_at = db.Column(db.DateTime(timezone=True),  default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),  onupdate=func.now())
 
@@ -157,20 +156,43 @@ class Event(db.Model):
     ratings = db.relationship('Rating', backref='event', lazy=True)
     favorites = db.relationship('Favorite', backref='event', lazy=True, uselist=False)
     asistencia = db.relationship('Assist', backref='event', lazy=True, uselist=False)
-
+            
     @classmethod
-    def create(cls, title, address, price, description, category, start_day, end_day, geolocation, img_url):
-        return cls(
-            title=title, 
-            address=address,
-            price=price,
-            description=description,
-            category=category,
-            start_day=start_day,
-            end_day=end_day,
-            geolocation=geolocation,
-            img_url=img_url
-            )
+    def create(cls, body):
+        try:
+        
+            new_event = cls(title = body["title"], address = body["address"], price = body["price"], description = body["description"], category = body["category"], start_day = body["start_day"], end_day = body["end_day"], geolocation = body["geolocation"], img_url = body["img_url"] if body.get("img_url") else '', user_id = body["user_id"])
+            
+            if not isinstance(new_event, cls):
+                raise Exception({
+                    "message": "Error interno de aplicación",
+                    "status": 500
+                })
+                
+            saved = new_event.save_and_commit()
+           
+            if not saved:
+                raise Exception({
+                    "message": "Error de Base de datos",
+                    "status": 500
+                })
+            return new_event
+        except Exception as error:
+            print(error)
+            return error.args[0]
+
+    def save_and_commit(self):
+        """
+            Salva la instancia creada, en la base de datos. Si sucede algún error, 
+            se retorna False y se revierten los cambios de la sesión
+        """
+        try:
+            db.session.add(self)  #Guardamos la instancia en la sessión
+            db.session.commit() #Creamos el registro en la db 
+            return True
+        except Exception as error:
+            db.session.rollback() #Retornamos a la session mas reciente
+            return False
 
     def serialize(self):
         return {
@@ -191,7 +213,7 @@ class Event(db.Model):
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(120), unique=True, nullable=False)
+    content = db.Column(db.String(220), unique=True, nullable=False)
     created_at = db.Column(db.Date(), unique=True, nullable=False)
     updated_at = db.Column(db.Date(), unique=True, nullable=False)
 
@@ -213,7 +235,7 @@ class Comment(db.Model):
 
 class Rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    rate = db.Column(db.String(3), unique=True, nullable=False)
+    rate = db.Column(db.String(5), unique=True, nullable=False)
     created_at = db.Column(db.Date(), unique=True, nullable=False)
     updated_at = db.Column(db.Date(), unique=True, nullable=False)
 

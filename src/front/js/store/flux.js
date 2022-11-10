@@ -6,6 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       isLoading: false,
       me: {},
+      events: [],
+      filters: [],
       demo: [
         {
           title: "FIRST",
@@ -68,6 +70,21 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({ me: data });
       },
+      getEvents: async () => {
+        const store = getStore();
+        await fetch(`${process.env.BACKEND_URL}/api/events`)
+          .then(async (res) => {
+            if (!res.ok) {
+              const { message } = await res.json();
+              throw message;
+            }
+            const data = await res.json();
+            setStore({ events: data });
+          })
+          .catch((error) => {
+            HandlerError(error, "error");
+          });
+      },
       getUserInfo: async function () {
         const actions = getActions();
         try {
@@ -81,6 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           actions.saveUserInfo(response);
         } catch (error) {
           window.location.pathname = "/";
+          actions.logout()
           console.log(error);
         }
       },
@@ -91,6 +109,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoading: (state) => {
         setStore({ isLoading: state });
       },
+      saveFilter: (filter) => {
+        setStore({filter})
+      }
     },
   };
 };

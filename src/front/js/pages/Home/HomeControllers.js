@@ -1,3 +1,4 @@
+import React from 'react'
 import { useContext, useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,23 +8,30 @@ import { Context } from "../../store/appContext";
 import HandlerError from "../../utils/HandleError";
 import isEmpty from "is-empty";
 
-export default function ProfileControllers() {
+export default function HomeControllers() {
   const { store, actions } = useContext(Context);
   const [selectedImages, setSelectedImages] = useState([]);
-
-  const schemaUpdate = yup
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const schema = yup
     .object({
-      password: yup.string(),
-      phone: yup.string(),
-      file: yup.string(),
+      title: yup.string().required("Este campo es requerido"),
+      address: yup.string().required("Este campo es requerido"),
+      price: yup.string().required("Este campo es requerido"),
+      description: yup.string().required("Este campo es requerido"),
+      category: yup.string().required("Este campo es requerido"),
+      start_day: yup.string().required("Este campo es requerido"),
+      end_day: yup.string().required("Este campo es requerido"),
+      geolocation: yup.string(),
     })
-    .required("Este campo es requerido");
+    .required();
   const {
     control: controlInputs,
     handleSubmit: handleSubmitData,
     formState: { errors: errorsData },
   } = useForm({
-    resolver: yupResolver(schemaUpdate),
+    resolver: yupResolver(schema),
     mode: "onBlur",
   });
 
@@ -40,21 +48,24 @@ export default function ProfileControllers() {
       })
         .then(async (res) => {
           const image = await res.json();
-          Object.assign(bodyParams, { url_image: image.secure_url });
+          Object.assign(bodyParams, { img_url: image.secure_url });
         })
         .catch((err) => console.log(err));
     }
+    Object.assign(bodyParams, { user_id: store.me.id });
     request({
       method: "POST",
       customHeaders: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      path: "/api/user",
+      path: "/api/event",
       params: bodyParams,
     })
       .then((res) => {
         if (res) {
-          actions.saveUserInfo(res);
+          setSelectedImages('')
+          actions.getEvents();
+          setOpen(false)
         }
       })
       .catch((error) => HandlerError(error))
@@ -67,5 +78,9 @@ export default function ProfileControllers() {
     handleSubmitData,
     onSubmit,
     setSelectedImages,
+    selectedImages,
+    handleOpen,
+    handleClose,
+    open,
   };
 }
