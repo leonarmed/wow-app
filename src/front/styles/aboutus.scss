@@ -5,14 +5,16 @@
     background-size: 100%!important;
     background-repeat: no-repeat;
    .textbox{
+    background-color: rgb(226 226 226);
     margin-top: 8%;
+    opacity: 0.96;
+    border-radius: 25px;
    }
 }
 .scrolldown1{
     .images{
         width: 180px;
         text-align: justify;
-        border-radius: 50%;
         &.text{
             display: block;
         }
@@ -30,5 +32,26 @@
             width: 200px !important;
         }
     }
-    
+}
+.images-person{
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.tito{
+    object-position: bottom;
+}
+.juan{
+    object-position: top;
+}
+.joel{
+    object-position: center;
+}
+.images-per-con{
+    width: 300px;
+    text-align: justify;
+    &.text{
+        display: block;
+    }
 }
