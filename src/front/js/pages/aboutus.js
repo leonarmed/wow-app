@@ -9,6 +9,9 @@ import flask from '../../img/flask.png'
 import react from '../../img/react.png'
 import flux from '../../img/fluxx.png'
 import cloudinary from '../../img/cloudinary.png'
+import joel from '../../img/joel.jpeg'
+import tito from '../../img/tito.jpeg'
+import juan from '../../img/juan.jpeg'
 function AboutUs() {
   return (
 <>   
@@ -16,12 +19,12 @@ function AboutUs() {
   <div className="d-flex container-fluid upperhero" lc-helper="background" >
     .
   </div>
-  <div className="container p-3 textbox justify-content-center align-items-center" style={{backgroundColor:"rgb(226 226 226)"}}>
+  <div className="container p-3 textbox justify-content-center align-items-center rounded" style={{backgroundColor:"rgb(226 226 226)"}}>
     <div className="row">
       <div className="col-md-4 text-center align-self-center">
         <div className="lc-block border-end border-2 border-dark ">
           <div editable="rich">
-            <p className="display-3 text-secondary">POR QUÉ WOW?</p>
+            <p className="display-3 text-secondary">¿POR QUÉ WOW?</p>
           </div>
         </div>
       </div>
@@ -50,13 +53,27 @@ function AboutUs() {
     Programadores:
     
   </div>
-  <div className="justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2">
-  Este proyecto fue construido en conjunto por Joel Medina, Juan Araque y Tito Balza. Todos participantes del bootcamp de 4Geeks Venezuela. 
+  <div className='d-flex flex-wrap justify-content-around mt-5'>
+    <div className='d-flex flex-wrap images justify-content-center'>
+      <img src={joel} className='h-5 images'>
+      </img>
+      <p className='text d-flex align-items-end '>Joel Leonardo Medina, ingeniero en sistemas, front end developer.</p>
+    </div>
+    <div className='d-flex flex-wrap images justify-content-center'>
+      <img src={tito} className='h-5 images'>
+      </img>
+      <p className='text d-flex align-items-end '>Tito Ángel Balza, estudiante de economía empresarial, 19 años.</p>
+    </div>
+    <div className='d-flex flex-wrap images justify-content-center'>
+      <img src={juan} className='h-5 images'>
+      </img>
+      <p className='text d-flex align-items-end '>Juan Araque, estudiante de ingeniería en sistemas, 19 años.</p>
+    </div>
   </div>
 </div>
 <div className='scrolldown2 container-fluid py-5' >
     <div className='display-3 justify-content-center d-flex border-bottom border-warning '>
-    Cómo lo hicimos?
+    ¿Cómo lo hicimos?
     </div>
     <p className='justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2'> 
     Para hacer esta página usamos distintos lenguajes de programación y/o librerías:
