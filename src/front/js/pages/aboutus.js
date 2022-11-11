@@ -9,23 +9,26 @@ import flask from '../../img/flask.png'
 import react from '../../img/react.png'
 import flux from '../../img/fluxx.png'
 import cloudinary from '../../img/cloudinary.png'
+import joel from '../../img/joel.jpeg'
+import tito from '../../img/tito.jpeg'
+import juan from '../../img/juan.jpeg'
 function AboutUs() {
   return (
 <>   
-<div className='container-fluid aboutus justify-content-center' style={{backgroundImage: `url(${img})`}}>
+<div className='container-fluid aboutus justify-content-center pb-5' style={{backgroundImage: `url(${img})`}}>
   <div className="d-flex container-fluid upperhero" lc-helper="background" >
     .
   </div>
-  <div className="container p-3 textbox justify-content-center align-items-center" style={{backgroundColor:"rgb(226 226 226)"}}>
+  <div className="container p-3 py-5 textbox justify-content-center align-items-center">
     <div className="row">
       <div className="col-md-4 text-center align-self-center">
         <div className="lc-block border-end border-2 border-dark ">
           <div editable="rich">
-            <p className="display-3 text-secondary">POR QUÉ WOW?</p>
+            <p className="display-3 text-secondary">¿POR QUÉ WOW?</p>
           </div>
         </div>
       </div>
-      <div className="col-md-8">
+      <div className="col-md-8 row align-items-center">
         <div className="lc-block ">
           <div editable="rich">
             <p className="display-5">Impulsando los eventos para todos</p>
@@ -46,19 +49,37 @@ function AboutUs() {
   </div>
 </div>
 <div className='scrolldown1 container-fluid py-5' >
-  <div className='display-3 justify-content-center d-flex border-bottom border-warning '>
-    Programadores:
+  <div className='display-3 justify-content-center d-flex border-bottom border-warning pb-5'>
+    Los Programadores
     
   </div>
-  <div className="justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2">
-  Este proyecto fue construido en conjunto por Joel Medina, Juan Araque y Tito Balza. Todos participantes del bootcamp de 4Geeks Venezuela. 
+  <div className='d-flex flex-wrap justify-content-around mt-5'>
+    <div className='d-flex flex-wrap images-per-con mb-3 justify-content-center'>
+      <img src={juan} className='h-5 images-person mb-3 juan'>
+      </img>
+      <h3>Juan Araque</h3>
+      <h5 className='text-center d-flex'>Estudiante de ingeniería en sistemas, 19 años.</h5>
+      
+    </div>
+    <div className='d-flex flex-wrap images-per-con mb-3 justify-content-center'>
+      <img src={joel} className='h-5 images-person mb-3 joel'>
+      </img>
+      <h3>Joel Leonardo Medina</h3>
+      <h5 className='text-center d-flex'>Ingeniero en sistemas, front end developer, 34 años.</h5>
+    </div>
+    <div className='d-flex flex-wrap images-per-con mb-3 justify-content-center'>
+      <img src={tito} className='h-5 images-person tito mb-3'>
+      </img>
+      <h3>Tito Ángel Balza</h3>
+      <h5 className='text-center d-flex'>Estudiante de economía empresarial, 19 años.</h5>
+    </div>
   </div>
 </div>
 <div className='scrolldown2 container-fluid py-5' >
-    <div className='display-3 justify-content-center d-flex border-bottom border-warning '>
-    Cómo lo hicimos?
+    <div className='display-3 justify-content-center d-flex border-bottom border-warning pb-5'>
+    ¿Cómo lo hicimos?
     </div>
-    <p className='justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2'> 
+    <p className='justify-content-center d-flex fs-4 text mt-2 ps-2 pe-2 pt-3'> 
     Para hacer esta página usamos distintos lenguajes de programación y/o librerías:
     </p>
     <div className='d-flex flex-wrap justify-content-around mt-5'>

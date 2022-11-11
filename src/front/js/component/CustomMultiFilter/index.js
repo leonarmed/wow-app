@@ -28,8 +28,9 @@ export function CustomMultiFilter() {
         multiple
         onChange={(event, newValue) => actions.saveFilter(newValue)}
         id="tags-outlined"
-        options={options}
-        getOptionLabel={(option) => option.title}
+        options={events_filters}
+        getOptionLabel={(option) => option}
+        // defaultValue={[events_filters[2]]}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
@@ -41,3 +42,6 @@ export function CustomMultiFilter() {
     </Stack>
   );
 }
+
+// Tipos de eventos para filtrar
+const events_filters = ["Comida", "Tours", "Concierto", "Feria", "Cursos"];

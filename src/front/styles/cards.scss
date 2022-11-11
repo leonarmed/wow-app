@@ -3,7 +3,7 @@
 }
 
 .card {
-  width: 26rem;
+  min-width: 350px;
   border-radius: 20px;
 }
 
@@ -39,7 +39,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top left, #e81cff 0%, #000000 100% );
+  background: linear-gradient(to top left, #e81cff 0%, #000000 100%);
   transform: translate3d(10px, 18px, 0) scale(0.8);
   filter: blur(34px);
   opacity: var(0.6);
@@ -63,11 +63,3 @@
   background: inherit;
   border-radius: inherit;
 }
-      
-      
-      
-      
-      
-      
-      
-      

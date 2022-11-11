@@ -1,3 +1,4 @@
+
 image:
   file: .gitpod.Dockerfile
 ports:
@@ -22,4 +23,5 @@ tasks:
       npm install &&
       python docs/assets/greeting.py front
     openMode: split-right
+
 

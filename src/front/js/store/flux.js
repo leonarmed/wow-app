@@ -109,9 +109,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoading: (state) => {
         setStore({ isLoading: state });
       },
-      saveFilter: (filter) => {
-        setStore({ filter });
-      },
+      saveFilter: (newFilter) => {
+        setStore({ filter: newFilter })
+      }
     },
   };
 };
