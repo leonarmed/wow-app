@@ -4,7 +4,15 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { Context } from "../../store/appContext";
 
-export default function CustomMultiFilter() {
+export const options = [
+  { title: "Comida" },
+  { title: "Tours" },
+  { title: "Conciertos" },
+  { title: "Ferias" },
+  { title: "Cursos" },
+];
+
+export function CustomMultiFilter() {
   const { actions, store } = React.useContext(Context);
   return (
     <Stack
@@ -20,9 +28,8 @@ export default function CustomMultiFilter() {
         multiple
         onChange={(event, newValue) => actions.saveFilter(newValue)}
         id="tags-outlined"
-        options={top100Films}
+        options={options}
         getOptionLabel={(option) => option.title}
-        // defaultValue={[top100Films[2]]}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
@@ -34,11 +41,3 @@ export default function CustomMultiFilter() {
     </Stack>
   );
 }
-
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const top100Films = [
-  { title: "Comida" },
-  { title: "Tours" },
-  { title: "Conciertos" },
-  { title: "Ferias" },
-];

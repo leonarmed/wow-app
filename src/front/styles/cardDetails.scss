@@ -1,61 +1,57 @@
-
-.container-fluid{
+.container-fluid {
   width: 100%;
-  &.fondo{
+  &.fondo {
     background-color: #202124;
   }
-.hero{
-  background-color: #fff;
-  box-shadow:
-    0 0 20px 10px #fff,  /* inner white */
-    0 0 50px 15px #f0f, /* middle magenta */
-    0 0 70px 20px #0ff; /* outer cyan */
-.containerimage {
-  height: 400px;
-  object-fit: cover;
-  width: 100%!important;
-  background-size: 100%!important;
-  background-repeat: no-repeat;
-  .ola{background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-}
-}
-}
+  .hero {
+    background-color: #fff;
+    box-shadow: 0 0 20px 10px #fff, /* inner white */ 0 0 50px 15px #f0f,
+      /* middle magenta */ 0 0 70px 20px #0ff; /* outer cyan */
+    .containerimage {
+      height: 400px;
+      object-fit: cover;
+      width: 100% !important;
+      background-size: 100% !important;
+      background-repeat: no-repeat;
+      background-position: center;
+      .ola {
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+      }
+    }
+  }
 
-.FECHA{
-  background-color: blueviolet;
-
-}
-.barrasubimagen{
-  background-color: #202124;
-  padding: auto;
-  color: white;
-  .favorite-btn {
-    font-size: 22px;
-    padding: 0;
+  .FECHA {
+    background-color: blueviolet;
+  }
+  .barrasubimagen {
+    background-color: #202124;
+    padding: auto;
     color: white;
-    width: 2em;
-    height: 2em;
-    
+    .favorite-btn {
+      font-size: 22px;
+      padding: 0;
+      color: white;
+      width: 2em;
+      height: 2em;
+    }
+    .favorite-btn:hover {
+      color: red;
+    }
+    .starIcon {
+      font-size: 22px;
+      color: #eb832f;
+      margin-right: 5%;
+    }
   }
-  .favorite-btn:hover {
-    color: red;
-  }
-  .starIcon {
-    font-size: 22px;
-    color: #eb832f;
-    margin-right: 5%;
-  }
-}
 
-.checked {
-  color: yellow;
+  .checked {
+    color: yellow;
+  }
+  .row {
+    margin-left: 0px !important;
+  }
+  .partenegra {
+    background-color: #202124 !important;
+  }
 }
-.row{
-  margin-left: 0px!important;
-}
-.partenegra{
-  background-color: #202124!important;
-}
-}
-

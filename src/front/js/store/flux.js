@@ -98,7 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           actions.saveUserInfo(response);
         } catch (error) {
           window.location.pathname = "/";
-          actions.logout()
+          actions.logout();
           console.log(error);
         }
       },
@@ -110,8 +110,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ isLoading: state });
       },
       saveFilter: (filter) => {
-        setStore({filter})
-      }
+        setStore({ filter });
+      },
     },
   };
 };

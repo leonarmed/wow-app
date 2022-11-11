@@ -25,6 +25,7 @@
 }
 .information {
   border-bottom: 1px solid rgba(146, 146, 146, 0.167);
+  text-align: left;
 }
 .other-info {
   width: 100%;
@@ -34,6 +35,13 @@
 .edit-btn {
   width: 40vh;
   border-radius: 15px;
+}
+
+.profile-container {
+  .container-info {
+    height: 100%;
+    border-radius: 15px;
+  }
 }
 
 .custom-input-file {

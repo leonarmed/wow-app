@@ -15,6 +15,13 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     top: theme.spacing(2),
     right: theme.spacing(2),
   },
+  ".MuiSpeedDialAction-fab":{
+    backgroundColor: "#46b74f",
+    color:"white",
+    "&:hover":{
+      backgroundColor: "#0cda70"
+    }
+  }
 }));
 
 const actions = [{ icon: <WhatsAppIcon />, name: "WhatsApp" }];

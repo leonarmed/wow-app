@@ -33,3 +33,7 @@ select:-webkit-autofill:focus {
 .MuiInputBase-input{
   font: -webkit-control;
 }
+
+.MuiBackdrop-root{
+  z-index: 1200;
+}

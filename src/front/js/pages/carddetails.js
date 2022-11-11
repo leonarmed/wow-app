@@ -49,15 +49,17 @@ function CardDetails() {
     const event = await fetch(
       `${process.env.BACKEND_URL}/api/event/${params.theid}`
     )
-      .then(async (res) => {
+      .then((res) => {
         if (!res.ok) {
           console.log("error");
         }
-        const data = await res.json();
+        return res.json();
+      })
+      .then((data) => {
         setEvent(data);
       })
       .catch((error) => HandlerError(error))
-      .then(actions.isLoading(false));
+      .finally(actions.isLoading(false));
     // setCharacter(character.properties)
   };
 

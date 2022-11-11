@@ -15,6 +15,7 @@ export default function FormCreateEvent() {
     setSelectedImages,
     handleClose,
   } = HomeControllers();
+  
   return (
     <CustomFormContainer
       mode="form"
@@ -89,6 +90,7 @@ export default function FormCreateEvent() {
           <CustomInputForm
             size="small"
             name="category"
+            options={options}
             control={controlInputs}
             error={errorsData.category}
             label="Categoría"
@@ -98,6 +100,7 @@ export default function FormCreateEvent() {
           <CustomInputForm
             size="small"
             name="start_day"
+            type="date"
             control={controlInputs}
             error={errorsData.start_day}
             label="Fecha de inicio"
@@ -107,6 +110,7 @@ export default function FormCreateEvent() {
           <CustomInputForm
             size="small"
             name="end_day"
+            type="date"
             control={controlInputs}
             error={errorsData.end_day}
             label="Fecha fin"

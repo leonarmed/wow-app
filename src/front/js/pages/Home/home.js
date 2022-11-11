@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { CustomSkeleton } from "../../component/Skeleton";
 import BasicModal from "../../component/ModalMaterial";
+import { options } from "../../component/CustomMultiFilter";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -176,7 +177,6 @@ export const Home = () => {
           <div className="card-container d-flex">
             {!isEmpty(store.events) ? (
               store.events.map((event) => {
-                console.log(event.category);
                 return <Cards key={event.id} data={event} />;
               })
             ) : store.isLoading ? (
@@ -273,16 +273,20 @@ export const Home = () => {
               <CustomInputForm
                 size="small"
                 name="category"
+                options={options}
                 control={controlInputs}
                 error={errorsData.category}
                 label="Categoría"
+                defaultValue={0}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <CustomInputForm
                 size="small"
                 name="start_day"
+                type="date"
                 control={controlInputs}
+                InputLabelProps={{ shrink: true }}
                 error={errorsData.start_day}
                 label="Fecha de inicio"
               />
@@ -291,7 +295,9 @@ export const Home = () => {
               <CustomInputForm
                 size="small"
                 name="end_day"
+                type="date"
                 control={controlInputs}
+                InputLabelProps={{ shrink: true }}
                 error={errorsData.end_day}
                 label="Fecha fin"
               />

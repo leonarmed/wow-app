@@ -1,5 +1,5 @@
 import React from "react";
-import CustomMultiFilter from "../CustomMultiFilter";
+import {CustomMultiFilter} from "../CustomMultiFilter";
 
 export default function Header() {
   return (
