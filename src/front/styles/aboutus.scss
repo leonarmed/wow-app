@@ -8,6 +8,16 @@
     margin-top: 8%;
    }
 }
+.scrolldown1{
+    .images{
+        width: 180px;
+        text-align: justify;
+        border-radius: 50%;
+        &.text{
+            display: block;
+        }
+    }
+}
 .scrolldown2{
     background-color: rgb(226, 226, 226);
     .images{
