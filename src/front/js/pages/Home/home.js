@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext";
 import { Add as AddIcon } from "@mui/icons-material";
 import "../../../styles/home.scss";
@@ -33,7 +33,7 @@ export const Home = () => {
   useEffect(async () => {
     actions.getEvents();
   }, []);
-
+  
   let events = [
     {
       id: 1,
@@ -171,13 +171,28 @@ export const Home = () => {
         </div>
       </div>
       <div className="container-fluid">
-        <h3 className="my-4 text-start">Próximos eventos</h3>
+        <h1 className="my-5 text-start">Próximos Eventos</h1>
         <div className="overflow-auto">
           <div className="card-container d-flex">
             {!isEmpty(store.events) ? (
+              
               store.events.map((event) => {
-                console.log(event.category);
-                return <Cards key={event.id} data={event} />;
+
+                if (isEmpty(store.filter)) {
+                  return <Cards key={event.id} data={event} />;
+                }
+                console.log(store.filter, event.category)
+                console.log(store.filter.includes(event.category))
+                if (store.filter.includes(event.category)) {
+                  
+                  return <Cards key={event.id} data={event} />
+                }
+                //store.filter.includes(event.category) && (<Cards key={event.id} data={event} />)
+                //for (let i = 0; i < store.filter.length; i++) {
+                //  if (event.category === store.filter[i].title) {
+                //    return <Cards key={event.id} data={event} />;
+                //  }
+                //}
               })
             ) : store.isLoading ? (
               <CustomSkeleton cant={4} />
@@ -186,6 +201,7 @@ export const Home = () => {
                 <Typography variant="h6">No hay eventos registrados</Typography>
               </Box>
             )}
+
             {!isEmpty(store.me) && (
               <Fab
                 color="secondary"

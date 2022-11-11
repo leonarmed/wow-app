@@ -20,9 +20,9 @@ export default function CustomMultiFilter() {
         multiple
         onChange={(event, newValue) => actions.saveFilter(newValue)}
         id="tags-outlined"
-        options={top100Films}
-        getOptionLabel={(option) => option.title}
-        // defaultValue={[top100Films[2]]}
+        options={events_filters}
+        getOptionLabel={(option) => option}
+        // defaultValue={[events_filters[2]]}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
@@ -35,10 +35,9 @@ export default function CustomMultiFilter() {
   );
 }
 
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const top100Films = [
-  { title: "Comida" },
-  { title: "Tours" },
-  { title: "Conciertos" },
-  { title: "Ferias" },
+// Tipos de eventos para filtrar
+const events_filters = [
+  "Comida","Tours",
+   "Concierto" ,
+   "Feria" ,
 ];
